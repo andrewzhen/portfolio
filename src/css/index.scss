@@ -1,0 +1,39 @@
+@import "./reset.scss";
+@import "./typography.scss";
+@import "./constants.scss";
+
+body {
+  height: 100%;
+  position: relative;
+}
+
+a {
+  color: $default-text-color;
+  text-decoration: none;
+}
+
+.main {
+  color: $default-text-color;
+  background-color: $default-background-color;
+  width: 100%;
+  min-height: 100vh;
+  display: block;
+  position: relative;
+  overflow-y: hidden;
+  padding: $spacer2 $spacer3;
+  box-sizing: border-box;
+}
+
+.head-nav__item, .foot-nav__item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.foot-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: $spacer3;
+  box-sizing: border-box;
+}

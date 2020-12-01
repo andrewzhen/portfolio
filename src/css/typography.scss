@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "Soehne Breit Kraftig";
+  src: url("../fonts/soehne-breit-kraftig.woff2") format("woff2"),
+       url("../fonts/soehne-breit-kraftig.woff") format("woff"),
+       url("../fonts/soehne-breit-kraftig.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Soehne Breit Fett";
+  src: url("../fonts/soehne-breit-fett.woff2") format("woff2"),
+       url("../fonts/soehne-breit-fett.woff") format("woff"),
+       url("../fonts/soehne-breit-fett.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Soehne Breit Halbfett";
+  src: url("../fonts/soehne-breit-halbfett.woff2") format("woff2"),
+       url("../fonts/soehne-breit-halbfett.woff") format("woff"),
+       url("../fonts/soehne-breit-halbfett.ttf") format("truetype");
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Soehne Breit Kraftig', sans-serif;
+  letter-spacing: -0.02rem;
+  line-height: 160%;
+}
+
+.blurb {
+  font-size: 1.75rem;
+  line-height: 120%;
+}

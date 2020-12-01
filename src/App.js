@@ -1,17 +1,18 @@
 import React from "react";
-import './App.css';
-import Header from "./components/Header";
-// import Main from "./components";
-// import Footer from "./components";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+// import About from "./Pages/About";
+// import Contact from "./Pages/Contact";
 
-function App() {
+export default function App() {
   return (
-    <div>
-      <Header />
-      {/* <Main />
-      <Footer /> */}
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/home" component={Home} />
+        {/* <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} /> */}
+      </Switch>
+    </BrowserRouter>
   );
 }
-
-export default App;
