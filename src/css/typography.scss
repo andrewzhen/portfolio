@@ -6,6 +6,13 @@
 }
 
 @font-face {
+  font-family: "Soehne Breit Halbfett";
+  src: url("../fonts/soehne-breit-halbfett.woff2") format("woff2"),
+       url("../fonts/soehne-breit-halbfett.woff") format("woff"),
+       url("../fonts/soehne-breit-halbfett.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "Soehne Breit Fett";
   src: url("../fonts/soehne-breit-fett.woff2") format("woff2"),
        url("../fonts/soehne-breit-fett.woff") format("woff"),
@@ -13,10 +20,8 @@
 }
 
 @font-face {
-  font-family: "Soehne Breit Halbfett";
-  src: url("../fonts/soehne-breit-halbfett.woff2") format("woff2"),
-       url("../fonts/soehne-breit-halbfett.woff") format("woff"),
-       url("../fonts/soehne-breit-halbfett.ttf") format("truetype");
+  font-family: "Suisse BP Int'l Bold";
+  src: url("../fonts/Suisse\ BP\ Int\'l\ Bold.woff") format("woff");
 }
 
 * {
@@ -29,12 +34,24 @@ html {
 }
 
 body {
-  font-family: 'Soehne Breit Kraftig', sans-serif;
+  font-family: 'Soehne Breit Kraftig', -apple-system, sans-serif;
   letter-spacing: -0.02rem;
   line-height: 160%;
 }
 
-.blurb {
+h1 {
   font-size: 1.75rem;
   line-height: 120%;
+}
+
+h2 {
+  font-family: "Soehne Breit Fett", "Suisse BP Int'l Bold", -apple-system, sans-serif;
+}
+
+a {
+  font-family: "Soehne Breit Halbfett";
+}
+
+.nav__list__item--active {
+  font-family: "Soehne Breit Fett";
 }
