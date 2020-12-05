@@ -4,26 +4,39 @@ import { SPACER1, SPACER2, SPACER3, SPACER4,
 
 export default function Project(props) {
   const [hover, setHover] = useState(false);
+  const [click, setClick] = useState(false);
+  
+  const self = {
+    textColor: props.textColor, 
+    backgroundColor: props.backgroundColor,
+    image: props.image,
+    description: props.description,
+    tools: props.tools, 
+    date: props.date
+  }
 
+  const reset = {
+    backgroundColor: DEFAULT_BACKGROUND_COLOR
+  }
+  
   return (
     <li 
-      key={props.key} 
       style={{ marginBottom: SPACER1 }} 
       className="project"
-      onMouseEnter={() => { setHover(true); props.parentCallback(props.backgroundColor) }} 
-      onMouseLeave={() => { setHover(false); props.parentCallback(DEFAULT_BACKGROUND_COLOR) }}
-      // onClick={}
+      onMouseEnter={() => { setHover(true); props.hover(self); }}
+      onMouseLeave={() => { setHover(false); props.hover(reset); }}
+      onClick={() => { setClick(!click); !click ? props.click(self) : props.click({}); }}
     >
       <div>
         {/* Tab */}
         <div 
-          className={"project__tab " + (hover ? "project__tab--hover" : undefined)}
-          style={{ backgroundColor: hover ? props.textColor : DEFAULT_TEXT_COLOR }}
+          className={"project__tab " + (click ? "project__tab--click" : (hover ? "project__tab--hover" : ""))}
+          style={{ backgroundColor: (hover || click) ? props.textColor : DEFAULT_TEXT_COLOR }}
         ></div>  
         {/* Title */}
         <h2 
-          className={"project__title " + (hover ? "project__title--hover" : undefined)}
-          style={{ color: hover ? props.textColor : DEFAULT_TEXT_COLOR }}
+          className={"project__title " + (click ? "project__title--click" : (hover ? "project__title--hover" : ""))}
+          style={{ color: (hover || click) ? props.textColor : DEFAULT_TEXT_COLOR }}
         >
           {props.title}
         </h2>
@@ -31,7 +44,7 @@ export default function Project(props) {
       
       {/* Expand */}
       <div 
-        className={"project__expand " + (hover ? "fadeIn" : "fadeOut")}
+        className={"project__expand " + (click ? "project__expand--rotate fadeIn " : (hover ? "fadeIn" : "fadeOut"))}
         style={{ 
           background: "linear-gradient(" + props.textColor + ", " + props.textColor + "), linear-gradient(" + props.textColor + ", " + props.textColor + "), " + props.backgroundColor,
           backgroundPosition: "center", 
