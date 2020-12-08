@@ -4,7 +4,7 @@
 
 #root {
   background-color: $default-background-color;
-  transition: 0.3s;
+  transition: $timing;
 }
 
 body {
@@ -26,10 +26,9 @@ a {
   min-height: 100vh;
   display: block;
   position: relative;
-  overflow-y: hidden;
   padding: $spacer2 $spacer4;
   box-sizing: border-box;
-  transition: 0.3s;
+  transition: $timing;
 }
 
 .nav__list {
@@ -37,7 +36,7 @@ a {
   justify-content: space-between;
 
   @at-root #{&}__item {
-    transition: 0.2s;
+    transition: $timing;
 
     @at-root #{&}--active {
       color: $default-text-color;
@@ -50,7 +49,7 @@ a {
 }
 
 .project {
-  cursor: pointer;
+  cursor: default;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -64,7 +63,7 @@ a {
     width: 0.25rem;
     height: 1rem;
     background-color: $default-text-color;
-    transition: 0.3s;
+    transition: $timing;
 
     &--hover {
       width: $spacer1 + 0.25rem;
@@ -77,7 +76,7 @@ a {
 
   @at-root #{&}__title {
     margin-left: $spacer1;
-    transition: 0.3s;
+    transition: $timing;
 
     &--hover {
       margin-left: $spacer2;
@@ -98,7 +97,7 @@ a {
     background-position: center;
     background-size: 100% 2px, 2px 100%;
     background-repeat: no-repeat;
-    transition: 0.3s;
+    transition: $timing;
     opacity: 0;
 
     &--rotate {
@@ -109,12 +108,16 @@ a {
 
 .fadeIn {
   opacity: 1;
-  // visibility: visible;
 }
 
 .fadeOut {
   opacity: 0;
-  // visibility: hidden;
+}
+
+.sticky {
+  position: sticky;
+  top: $spacer3;
+  align-self: flex-start;
 }
 
 .work {
@@ -122,7 +125,6 @@ a {
   position: relative;
 
   @at-root #{&}__list {
-    position: relative;
     z-index: 2;
     width: 23rem;
   }
@@ -134,17 +136,17 @@ a {
 
   @at-root #{&}__thumbnail__image {
     width: 100%;
-    align-self: flex-start;
   }
 
   @at-root #{&}__details {
     padding-left: $spacer2;
     width: 25%;
+    transition: $timing;
 
     @at-root #{&}__button {
       border: none;
       padding: $spacer1/2 $spacer1;
-      transition: 0.3s;
+      transition: $timing;
     }
   }
 }

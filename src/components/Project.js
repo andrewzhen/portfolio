@@ -6,26 +6,53 @@ export default function Project(props) {
   const [hover, setHover] = useState(false);
   const [click, setClick] = useState(false);
   
-  const self = {
+  const hoveredProject = {
     textColor: props.textColor, 
     backgroundColor: props.backgroundColor,
-    image: props.image,
-    description: props.description,
-    tools: props.tools, 
-    date: props.date
+    image: props.image
   }
 
-  const reset = {
+  const clickedProject = {
+    id: props.id,
+    textColor: props.textColor, 
+    backgroundColor: props.backgroundColor,
+    image: (props.image).slice(0, -4) + "-full.jpg",
+    description: props.description,
+    tools: props.tools, 
+    date: props.date,
+    url: props.url
+  }
+
+  const resetProject = {
     backgroundColor: DEFAULT_BACKGROUND_COLOR
   }
   
   return (
     <li 
+      id={props.id}
       style={{ marginBottom: SPACER1 }} 
       className="project"
-      onMouseEnter={() => { setHover(true); props.hover(self); }}
-      onMouseLeave={() => { setHover(false); props.hover(reset); }}
-      onClick={() => { setClick(!click); !click ? props.click(self) : props.click({}); }}
+      onMouseEnter={() => { 
+        // Hover state if no project clicked or if it is the clicked project
+        if ((props.hover.id === undefined) || props.hover.id === props.id) {
+          setHover(true); 
+          props.hover.fn(hoveredProject); 
+        }
+      }}
+      onMouseLeave={() => { 
+        // Hover state if no project clicked or if it is the clicked project
+        if ((props.hover.id === undefined) || props.hover.id === props.id) {
+          setHover(false); 
+          props.hover.fn(resetProject); 
+        }
+      }}
+      onClick={() => {
+        // Click state if no project clicked or if it is the clicked project
+        if ((props.hover.id === undefined) || props.click.id === props.id) {
+          setClick(!click); 
+          !click ? props.click.fn(clickedProject) : props.click.fn({});
+        }
+      }}
     >
       <div>
         {/* Tab */}
@@ -53,7 +80,6 @@ export default function Project(props) {
           backgroundColor: "transparent"
         }}
       ></div>
-
     </li>
   );
 }

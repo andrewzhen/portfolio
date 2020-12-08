@@ -13,6 +13,7 @@ export default function Home() {
   const [hovered, setHovered] = useState(
     { backgroundColor: DEFAULT_BACKGROUND_COLOR }
   );
+  const [fade, setFade] = useState(false);
   const [clicked, setClicked] = useState({});
 
   // Callbacks
@@ -21,7 +22,17 @@ export default function Home() {
     document.getElementById("root").style.backgroundColor = project.backgroundColor;
   }
   const clickCallback = project => {
-    setClicked(project);
+    // Fade first
+    setFade(!fade);
+
+    // Show/hide project information
+    if (Object.keys(project).length !== 0) {
+      setClicked(project);
+    } else {
+      setTimeout(function() {
+        setClicked(project);
+      }, 300);
+    }
   }
 
   // const imgs = projects.map(project => project.image);
@@ -51,7 +62,7 @@ export default function Home() {
 
       {/* Work */}
       <div className="work">
-        <ul className="work__list">
+        <ul className="work__list sticky">
           {projects.map((project, idx) => 
             <Project 
               key={idx} 
@@ -64,24 +75,24 @@ export default function Home() {
               tools={project.tools}
               date={project.date}
               url={project.url}
-              hover={hoverCallback}
-              click={clickCallback}
+              hover={{id: clicked.id, fn: hoverCallback}}
+              click={{id: clicked.id, fn: clickCallback}}
             />
           )}
         </ul>
 
-        <div className="work__thumbnail">
+        <div className="work__thumbnail" style={{marginBottom: SPACER3 + SPACER2}}>
           <img 
-            src={hovered.image} 
+            src={clicked.image || hovered.image } 
             // src={"/images/as.jpg"}
             className={"work__thumbnail__image"} 
           />
         </div>
 
         {/* Placeholder */}
-        {!clicked && <div className="work__details"></div>}
+        {/* {!clicked && <div className="work__details"></div>} */}
 
-        {clicked && <div className="work__details">
+        <div className={"work__details sticky " + (fade ? "fadeIn" : "fadeOut")}>
           <p style={{ marginBottom: SPACER1 }}>{clicked.description}</p>
           <p style={{ marginBottom: SPACER1 }}>{clicked.tools}</p>
           <p style={{ marginBottom: SPACER2 }}>{clicked.date}</p>
@@ -89,14 +100,14 @@ export default function Home() {
           <p style={{ marginBottom: SPACER1 }}>HTML, CSS, JavaScript</p>
           <p style={{ marginBottom: SPACER2 }}>September 2020</p> */}
           {clicked.description && <a 
-            className={"work__details__button " + (clicked.description ? "fadeIn" : "fadeOut") }
+            className={"work__details__button" }
             style={{ color: clicked.backgroundColor, backgroundColor: clicked.textColor }}
             href={clicked.url}
             target="__blank"
           >
             Visit Site
           </a>}
-        </div>}
+        </div>
       </div>
 
       <Footer />

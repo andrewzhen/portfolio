@@ -28,7 +28,7 @@ export const projects = [
     description: "ASCE, Associated Students office of Concerts & Events, is UC San Diego's student programming board responsible for some of the longest standing campus traditions. My teammate, Leo Cooperband, and I were tasked with revamping ASCE's website for a more event-driven experience by giving them a new visual identity.",
     tools: "HTML, CSS, JavaScript",
     date: "September 2020",
-    url: "http://sgf.ucsd.edu/"
+    url: "https://asce.ucsd.edu/"
   },
   {
     title: "Sungod Festival 2020",
@@ -38,7 +38,7 @@ export const projects = [
     description: "ASCE, Associated Students office of Concerts & Events, is UC San Diego's student programming board responsible for some of the longest standing campus traditions. My teammate, Leo Cooperband, and I were tasked with revamping ASCE's website for a more event-driven experience by giving them a new visual identity.",
     tools: "HTML, CSS, JavaScript",
     date: "September 2020",
-    url: ""
+    url: "http://sgf.ucsd.edu/"
   },
   {
     title: "Design Co – Level Up",
