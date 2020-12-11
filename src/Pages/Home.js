@@ -5,20 +5,30 @@ import Blurb from "../components/Blurb";
 import Project from "../components/Project";
 import { projects } from "../projects";
 import Footer from "../components/Footer";
-import { SPACER1, SPACER2, SPACER3, SPACER4, 
+import { SPACER1, SPACER2, SPACER3, SPACER4, SPACER5,  
          DEFAULT_BACKGROUND_COLOR, DEFAULT_TEXT_COLOR} from "../constants";
 
 export default function Home() {
+  function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    console.log("RESULT ", result);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+  }
+
   // Hooks
-  const [hovered, setHovered] = useState(
-    { backgroundColor: DEFAULT_BACKGROUND_COLOR }
-  );
+  const [hovered, setHovered] = useState({ backgroundColor: DEFAULT_BACKGROUND_COLOR });
+  const [rgb, setRgb] = useState({});
   const [fade, setFade] = useState(false);
   const [clicked, setClicked] = useState({});
 
   // Callbacks
   const hoverCallback = project => {
     setHovered(project);
+    setRgb(hexToRgb(project.backgroundColor));
     document.getElementById("root").style.backgroundColor = project.backgroundColor;
   }
   const clickCallback = project => {
@@ -81,12 +91,19 @@ export default function Home() {
           )}
         </ul>
 
-        <div className="work__thumbnail" style={{marginBottom: SPACER3 + SPACER2}}>
+        <div 
+          className="work__thumbnail" 
+          style={{ marginBottom: SPACER5, maxHeight: clicked.id ? "200vh" : "21.5vw" }}
+        >
           <img 
             src={clicked.image || hovered.image } 
-            // src={"/images/as.jpg"}
+            // src={"/images/tf.jpg"}
             className={"work__thumbnail__image"} 
           />
+          <div 
+            className="dropOff"
+            style={{background: clicked.image ? "" : "linear-gradient(0deg, " + hovered.backgroundColor + " 0%, rgba(" + rgb.r + ", " + rgb.g + ", " + rgb.b + ", 0) 100%"}}
+          ></div>
         </div>
 
         {/* Placeholder */}

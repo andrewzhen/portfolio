@@ -16,7 +16,7 @@ export default function Project(props) {
     id: props.id,
     textColor: props.textColor, 
     backgroundColor: props.backgroundColor,
-    image: (props.image).slice(0, -4) + "-full.jpg",
+    image: props.image,
     description: props.description,
     tools: props.tools, 
     date: props.date,
