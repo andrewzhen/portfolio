@@ -30,8 +30,8 @@ export default function Project(props) {
   return (
     <li 
       id={props.id}
-      style={{ marginBottom: SPACER1 }} 
-      className="project"
+      style={{ marginBottom: SPACER1, cursor: (props.hover.id === undefined ||props.hover.id === props.id) ? "pointer" : "default" }} 
+      className="item"
       onMouseEnter={() => { 
         // Hover state if no project clicked or if it is the clicked project
         if ((props.hover.id === undefined) || props.hover.id === props.id) {
@@ -57,12 +57,12 @@ export default function Project(props) {
       <div>
         {/* Tab */}
         <div 
-          className={"project__tab " + (click ? "project__tab--click" : (hover ? "project__tab--hover" : ""))}
+          className={"item__tab " + (click ? "item__tab--click" : (hover ? "item__tab--hover" : ""))}
           style={{ backgroundColor: (hover || click) ? props.textColor : DEFAULT_TEXT_COLOR }}
         ></div>  
         {/* Title */}
         <h2 
-          className={"project__title " + (click ? "project__title--click" : (hover ? "project__title--hover" : ""))}
+          className={"item__title " + (click ? "item__title--click" : (hover ? "item__title--hover" : ""))}
           style={{ color: (hover || click) ? props.textColor : DEFAULT_TEXT_COLOR }}
         >
           {props.title}
@@ -71,7 +71,7 @@ export default function Project(props) {
       
       {/* Expand */}
       <div 
-        className={"project__expand " + (click ? "project__expand--rotate fadeIn " : (hover ? "fadeIn" : "fadeOut"))}
+        className={"item__expand " + (click ? "item__expand--rotate fadeIn " : (hover ? "fadeIn" : "fadeOut"))}
         style={{ 
           background: "linear-gradient(" + props.textColor + ", " + props.textColor + "), linear-gradient(" + props.textColor + ", " + props.textColor + "), " + props.backgroundColor,
           backgroundPosition: "center", 

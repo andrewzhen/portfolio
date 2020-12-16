@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="foot-nav">
       <ul className="nav__list">
         <div className="nav__list">
-          <li style={{ marginRight: SPACER2 }}>
+          <li style={{ margin: "0 " + SPACER1 +  " 0 -" + SPACER1 }}>
             <a 
               href="mailto:andrewjzhen@gmail.com"
               className="nav__list__item"
@@ -14,7 +14,7 @@ export default function Footer() {
               Email
             </a>
           </li>
-          <li style={{ marginRight: SPACER2 }}>
+          <li style={{ marginRight: SPACER1 }}>
             <a 
               href="../resume.pdf" 
               target="_blank"
@@ -23,7 +23,7 @@ export default function Footer() {
               Resume
             </a>
           </li>
-          <li style={{ marginRight: SPACER2 }}>
+          <li style={{ marginRight: SPACER1 }}>
             <a 
               href="https://www.linkedin.com/in/andrew-zhen/" 
               target="_blank"

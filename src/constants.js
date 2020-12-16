@@ -9,4 +9,3 @@ export const SPACER5 = BASE_SPACER * 5 + "rem";
 // Colors
 export const DEFAULT_TEXT_COLOR = "#FFFFFF";
 export const DEFAULT_BACKGROUND_COLOR = "#111111";
-export const INACTIVE_COLOR = "#C4C4C4";
