@@ -62,7 +62,10 @@ export default function Home() {
         backgroundColor: clicked.backgroundColor || hovered.backgroundColor
       }}
     >
-      <div className="content">
+      <div 
+        className="content"
+        style={{ overflowX: (clicked.title) ? "visible" : "hidden" }}
+      >
         <Helmet>
           <title>Andrew Zhen</title>
         </Helmet>
@@ -74,7 +77,10 @@ export default function Home() {
 
         {/* Work */}
         <div className="work">
-          <ul className="work__list sticky">
+          <ul 
+            className={"work__list sticky " + (clicked.title ? "slideLeft" : "slideReset")}
+            style={{ marginBottom: SPACER3 }}
+          >
             {projects.map((project, idx) => 
               <Project 
                 key={idx} 
@@ -94,7 +100,7 @@ export default function Home() {
           </ul>
 
           <div 
-            className="work__thumbnail" 
+            className={"work__thumbnail " + (clicked.title ? "slideReset" : "slideRight")}
             style={{ marginBottom: SPACER5, maxHeight: fade ? "200vh" : "19.5vw" }}
           >
             <img 
@@ -108,10 +114,39 @@ export default function Home() {
             ></div>
           </div>
 
-          {/* Placeholder */}
-          {/* {!clicked && <div className="work__details"></div>} */}
+          {/* Mobile title */}
+          <div 
+            className={"item item--mobile sticky " + (clicked.title ? "slideReset" : "slideRight")}
+            style={{ marginBottom: SPACER2 }}
+          >
+            <h2
+              style={{ color: clicked.textColor }}
+            >
+              {clicked.title}
+            </h2>
 
-          <div className={"work__details sticky " + (fade ? "fadeIn" : "fadeOut")}>
+            <div
+              // className="item__expand"
+              style={{ 
+                width: "1rem",
+                height: "1rem",
+                background: "linear-gradient(" + clicked.textColor + ", " + clicked.textColor + "), linear-gradient(" + clicked.textColor + ", " + clicked.textColor + "), " + clicked.backgroundColor,
+                backgroundPosition: "center",
+                backgroundSize: "100% 2px, 2px 100%",
+                backgroundRepeat: "no-repeat",
+                backgroundColor: "transparent",
+                cursor: "pointer"
+              }}
+              onClick={() => {
+                setClicked({});
+              }}
+            ></div>
+          </div>
+
+          <div 
+            className={"work__details sticky " + (fade ? "fadeIn" : "fadeOut") + " " + (clicked.title ? "slideReset" : "slideRight")}
+            style={{ marginBottom: SPACER3, top: "6rem" }}
+          >
             <p style={{ marginBottom: SPACER1 }}>{clicked.description}</p>
             <p style={{ marginBottom: SPACER1 }}>{clicked.tools}</p>
             <p style={{ marginBottom: SPACER2 }}>{clicked.date}</p>

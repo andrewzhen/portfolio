@@ -1,5 +1,6 @@
 @import "./reset.scss";
 @import "./typography.scss";
+@import "./mixins.scss";
 @import "./constants.scss";
 
 #root {
@@ -34,6 +35,10 @@ a {
   position: relative;
   padding: $spacer2 $spacer4;
   box-sizing: border-box;
+
+  @include md {
+    padding: $spacer2;
+  }
 }
 
 .nav__list {
@@ -41,7 +46,6 @@ a {
   justify-content: space-between;
 
   @at-root #{&}__item {
-    padding: $spacer1;
     transition: $timing;
 
     @at-root #{&}--active {
@@ -110,6 +114,12 @@ a {
       transform: rotate(45deg);
     }
   }
+
+  @at-root #{&}--mobile {
+    width: 100%;
+    cursor: default;
+    margin-right: 0;
+  }
 }
 
 .fadeIn {
@@ -124,23 +134,58 @@ a {
   position: sticky;
   top: $spacer3;
   align-self: flex-start;
+
+  @include sm {
+    position: sticky;
+    top: $spacer3;
+  }
+
+  // @include lg {
+  //   position: static;
+  //   top: 0;
+  // }
+}
+
+.slideLeft {
+  position: absolute;
+  transform: translateX(-100%);
+}
+
+.slideRight {
+  position: absolute;
+  transform: translateX(100%);
+}
+
+.slideReset {
+  position: sticky;
+  transform: translateX(0);
 }
 
 .work {
   display: flex;
   position: relative;
 
+  @include lg {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
   @at-root #{&}__list {
     z-index: 2;
-    // width: 23rem;
-    width: 28vw;
+    width: 23rem;
+    transition: $timing;
   }
 
   @at-root #{&}__thumbnail {
     position: relative;
-    width: calc(100% - 28vw - 25rem);
+    width: calc(100% - 23rem - 25vw);
     overflow: hidden;
-    transition: $timing * 2;
+    transition: max-height $timing * 2;
+
+    @include lg {
+      order: 3;
+      width: 100%;
+    }
   }
 
   @at-root #{&}__thumbnail__image {
@@ -153,10 +198,27 @@ a {
     box-sizing: border-box;
     transition: $timing;
 
+    @include md {
+      width: 100%;
+    }
+
+    @include md-lg {
+      width: calc(100% - 25rem);
+    }
+
+    @include lg {
+      padding-left: 0;
+    }
+
     @at-root #{&}__button {
       border: none;
       padding: $spacer1/2 $spacer1;
       transition: $timing;
+      display: block;
+      width: intrinsic;
+      width: -moz-max-content;
+      width: -webkit-max-content;
+      width: max-content;
     }
   }
 }
@@ -185,7 +247,7 @@ a {
 
   & > * {
     position: relative;
-    max-width: 45vw;
+    max-width: 35vw;
   }
 
   @at-root #{&}__image {
@@ -200,4 +262,8 @@ a {
   width: 100%;
   padding: $spacer2 $spacer4;
   box-sizing: border-box;
+
+  @include md {
+    padding: $spacer2;
+  }
 }

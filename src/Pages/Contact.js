@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import Nav from "../components/Nav";
 import Blurb from "../components/Blurb";
 import Tab from "../components/Tab";
-import Footer from "../components/Footer";
+import ContactFooter from "../components/ContactFooter";
 import { SPACER1, SPACER2, SPACER3, SPACER4 } from "../constants";
 
 export default function Contact() {
@@ -22,7 +22,7 @@ export default function Contact() {
           <div>
             <ul>
               <Tab 
-                text="resume.pdf" 
+                text="resume.pdf*" 
                 url="/resume.pdf" 
               />
               <Tab 
@@ -36,6 +36,10 @@ export default function Contact() {
               <Tab
                 text="github.com/andrewzhen"
                 url="https://github.com/andrewzhen"
+              />
+              <Tab
+                text="instagram.com/a.jzhen"
+                url="https://www.instagram.com/a.jzhen/"
               />
             </ul>
           </div>
@@ -52,7 +56,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <Footer />
+        <ContactFooter />
       </div>
     </main>
   );

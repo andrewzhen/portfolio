@@ -14,6 +14,7 @@ export default function Project(props) {
 
   const clickedProject = {
     id: props.id,
+    title: props.title,
     textColor: props.textColor, 
     backgroundColor: props.backgroundColor,
     image: props.image,
