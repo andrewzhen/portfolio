@@ -6,9 +6,10 @@ import Project from "../components/Project";
 import { projects } from "../projects";
 import Footer from "../components/Footer";
 import { SPACER1, SPACER2, SPACER3, SPACER4, SPACER5,  
-         DEFAULT_BACKGROUND_COLOR } from "../constants";
+         DEFAULT_BACKGROUND_COLOR, DEFAULT_TEXT_COLOR } from "../constants";
 
 export default function Home() {
+  // Helper
   function hexToRgb(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
@@ -44,6 +45,9 @@ export default function Home() {
         setClicked(project);
       }, 300);
     }
+
+    // Update text color
+    document.documentElement.style.setProperty('--variable-text-color', project.title ? project.textColor : DEFAULT_TEXT_COLOR);
   }
 
   // const imgs = projects.map(project => project.image);
@@ -58,9 +62,7 @@ export default function Home() {
   return (
     <main 
       className="main" 
-      style={{ 
-        backgroundColor: clicked.backgroundColor || hovered.backgroundColor
-      }}
+      style={{ backgroundColor: clicked.backgroundColor || hovered.backgroundColor }}
     >
       <div 
         className="content"
@@ -75,10 +77,11 @@ export default function Home() {
         <Blurb text="Frontend web developer designing and developing for digital experiences. Previously built and shipped websites at A.S. Graphic Studio and helped lead UC San Diego’s largest design community at Design Co. Currently based in San Francisco Bay Area." />
 
 
-        {/* Work */}
+        {/* Work Section*/}
         <div className="work">
+          {/* List */}
           <ul 
-            className={"work__list sticky " + (clicked.title ? "slideLeft" : "slideReset")}
+            className={"work__list sticky " + (fade ? "slideLeft" : "slideReset")}
             style={{ marginBottom: SPACER3 }}
           >
             {projects.map((project, idx) => 
@@ -99,13 +102,13 @@ export default function Home() {
             )}
           </ul>
 
+          {/* Thumbnail */}
           <div 
-            className={"work__thumbnail " + (clicked.title ? "slideReset" : "slideRight")}
+            className={"work__thumbnail " + (fade ? "slideReset" : "slideRight")}
             style={{ marginBottom: SPACER5, maxHeight: fade ? "200vh" : "19.5vw" }}
           >
             <img 
               src={clicked.image || hovered.image } 
-              // src={"/images/tf.jpg"}
               className={"work__thumbnail__image"} 
             />
             <div 
@@ -116,43 +119,28 @@ export default function Home() {
 
           {/* Mobile title */}
           <div 
-            className={"item item--mobile sticky " + (clicked.title ? "slideReset" : "slideRight")}
+            className={"item item--mobile sticky " + (fade ? "slideReset" : "slideRight")}
             style={{ marginBottom: SPACER2 }}
           >
-            <h2
-              style={{ color: clicked.textColor }}
-            >
+            <h2 style={{ color: clicked.textColor }}>
               {clicked.title}
             </h2>
 
             <div
-              // className="item__expand"
-              style={{ 
-                width: "1rem",
-                height: "1rem",
-                background: "linear-gradient(" + clicked.textColor + ", " + clicked.textColor + "), linear-gradient(" + clicked.textColor + ", " + clicked.textColor + "), " + clicked.backgroundColor,
-                backgroundPosition: "center",
-                backgroundSize: "100% 2px, 2px 100%",
-                backgroundRepeat: "no-repeat",
-                backgroundColor: "transparent",
-                cursor: "pointer"
-              }}
-              onClick={() => {
-                setClicked({});
-              }}
+              className="item__expand item__expand--rotate fadeIn"
+              style={{ cursor: "pointer" }}
+              onClick={() => { clickCallback({}); }}
             ></div>
           </div>
 
+          {/* Details */}
           <div 
-            className={"work__details sticky " + (fade ? "fadeIn" : "fadeOut") + " " + (clicked.title ? "slideReset" : "slideRight")}
+            className={"work__details sticky " + (fade ? "fadeIn" : "fadeOut") + " " + (fade ? "slideReset" : "slideRight")}
             style={{ marginBottom: SPACER3, top: "6rem" }}
           >
             <p style={{ marginBottom: SPACER1 }}>{clicked.description}</p>
             <p style={{ marginBottom: SPACER1 }}>{clicked.tools}</p>
             <p style={{ marginBottom: SPACER2 }}>{clicked.date}</p>
-            {/* <p style={{ marginBottom: SPACER1 }}>ASCE, Associated Students office of Concerts & Events, is UC San Diego's student programming board responsible for some of the longest standing campus traditions. My teammate, Leo Cooperband, and I were tasked with revamping ASCE's website for a more event-driven experience by giving them a new visual identity.</p>
-            <p style={{ marginBottom: SPACER1 }}>HTML, CSS, JavaScript</p>
-            <p style={{ marginBottom: SPACER2 }}>September 2020</p> */}
             {clicked.description && <a 
               className={"work__details__button" }
               style={{ color: clicked.backgroundColor, backgroundColor: clicked.textColor }}

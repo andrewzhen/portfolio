@@ -1,10 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SPACER1, SPACER2, SPACER3, SPACER4, 
          DEFAULT_TEXT_COLOR, DEFAULT_BACKGROUND_COLOR } from "../constants";
 
 export default function Project(props) {
+  // Helper
+  function updateTextColor(color) {
+    document.documentElement.style.setProperty('--variable-text-color', color);
+  }
+
+  // Hooks
   const [hover, setHover] = useState(false);
   const [click, setClick] = useState(false);
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    function handleResize() {
+      window.innerWidth <= 768 ? setMobile(true) : setMobile(false);
+    }
+    window.addEventListener('load', handleResize);
+    window.addEventListener('resize', handleResize);
+  });
   
   const hoveredProject = {
     textColor: props.textColor, 
@@ -37,6 +51,7 @@ export default function Project(props) {
         // Hover state if no project clicked or if it is the clicked project
         if ((props.hover.id === undefined) || props.hover.id === props.id) {
           setHover(true); 
+          updateTextColor(props.textColor);
           props.hover.fn(hoveredProject); 
         }
       }}
@@ -50,7 +65,9 @@ export default function Project(props) {
       onClick={() => {
         // Click state if no project clicked or if it is the clicked project
         if ((props.hover.id === undefined) || props.click.id === props.id) {
-          setClick(!click); 
+          if (!mobile) {
+            setClick(!click); 
+          }
           !click ? props.click.fn(clickedProject) : props.click.fn({});
         }
       }}
@@ -64,7 +81,7 @@ export default function Project(props) {
         {/* Title */}
         <h2 
           className={"item__title " + (click ? "item__title--click" : (hover ? "item__title--hover" : ""))}
-          style={{ color: (hover || click) ? props.textColor : DEFAULT_TEXT_COLOR }}
+          style={{ color: (hover || click || mobile) ? props.textColor : DEFAULT_TEXT_COLOR }}
         >
           {props.title}
         </h2>
@@ -72,14 +89,7 @@ export default function Project(props) {
       
       {/* Expand */}
       <div 
-        className={"item__expand " + (click ? "item__expand--rotate fadeIn " : (hover ? "fadeIn" : "fadeOut"))}
-        style={{ 
-          background: "linear-gradient(" + props.textColor + ", " + props.textColor + "), linear-gradient(" + props.textColor + ", " + props.textColor + "), " + props.backgroundColor,
-          backgroundPosition: "center", 
-          backgroundSize: "100% 2px, 2px 100%", 
-          backgroundRepeat: "no-repeat",
-          backgroundColor: "transparent"
-        }}
+        className={"item__expand " + (click ? "item__expand--rotate fadeIn " : ((hover || mobile) ? "fadeIn" : "fadeOut"))}
       ></div>
     </li>
   );

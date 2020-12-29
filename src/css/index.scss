@@ -3,6 +3,10 @@
 @import "./mixins.scss";
 @import "./constants.scss";
 
+:root {
+  --variable-text-color: #FFF;
+}
+
 #root {
   background-color: $default-background-color;
   transition: $timing;
@@ -56,6 +60,12 @@ a {
       text-decoration: underline;
     }
   }
+
+  #home {
+    @include xs {
+      display: none;
+    }
+  }
 }
 
 .item {
@@ -65,6 +75,10 @@ a {
   justify-content: space-between;
   position: relative;
   margin-right: $spacer2;
+
+  @include md {
+    margin-right: 0;
+  }
 
   @at-root #{&}__tab {
     position: absolute;
@@ -82,6 +96,10 @@ a {
     &--click {
       width: $spacer2 + 0.25rem;
     }
+
+    @include md {
+      display: none;
+    }
   }
 
   @at-root #{&}__title {
@@ -95,20 +113,43 @@ a {
     &--click {
       margin-left: $spacer3;
     }
+
+    @include md {
+      margin-left: 0;
+    }
   }
 
   @at-root #{&}__expand {
     width: 1rem;
     height: 1rem;
-    background: 
-      linear-gradient($default-text-color, $default-text-color),
-      linear-gradient($default-text-color, $default-text-color),
-      $default-background-color;
-    background-position: center;
-    background-size: 100% 2px, 2px 100%;
-    background-repeat: no-repeat;
+    position: relative;
     transition: $timing;
-    opacity: 0;
+    // opacity: 0;
+    &::before {
+      content: " ";
+      position: absolute;
+      display: block;
+      background-color: var(--variable-text-color);
+      width: 0.1rem;
+      margin-left: -0.05rem;
+      left: 50%;
+      top: 0.05rem;
+      bottom: 0.05rem;
+      z-index: 5;
+    }
+
+    &::after {
+      content: " ";
+      position: absolute;
+      display: block;
+      background-color: var(--variable-text-color);
+      height: 0.1rem;
+      margin-top: -0.05rem;
+      top: 50%;
+      left: 0.05rem;
+      right: 0.05rem;
+      z-index: 5;
+    }
 
     &--rotate {
       transform: rotate(45deg);
@@ -117,8 +158,10 @@ a {
 
   @at-root #{&}--mobile {
     width: 100%;
+    height: 1rem;
     cursor: default;
     margin-right: 0;
+    transition: $timing;
   }
 }
 
@@ -139,21 +182,16 @@ a {
     position: sticky;
     top: $spacer3;
   }
-
-  // @include lg {
-  //   position: static;
-  //   top: 0;
-  // }
 }
 
 .slideLeft {
   position: absolute;
-  transform: translateX(-100%);
+  transform: translateX(-110%);
 }
 
 .slideRight {
   position: absolute;
-  transform: translateX(100%);
+  transform: translateX(110%);
 }
 
 .slideReset {
@@ -265,5 +303,11 @@ a {
 
   @include md {
     padding: $spacer2;
+  }
+
+  #year {
+    @include s {
+      display: none;
+    }
   }
 }
