@@ -15,6 +15,7 @@ export default function Nav(props) {
                   "nav__list__item " + 
                   (props.from === "home" ? "nav__list__item--active" : undefined)
                 }
+                style={{ marginRight: SPACER2 }}
               >
                 Andrew <span id="home">Zhen</span>
               </Link>

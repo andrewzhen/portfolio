@@ -53,14 +53,14 @@ h1 {
 
 h2 {
   font-family: "Soehne Breit Fett", "Suisse BP Int'l Bold", -apple-system, sans-serif;
+
+  @include xs {
+    font-size: 4.45vw;
+  }
 }
 
 a {
   font-family: "Soehne Breit Halbfett";
-}
-
-.nav__list__item--active {
-  
 }
 
 .work__details {

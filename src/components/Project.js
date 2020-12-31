@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { SPACER1, SPACER2, SPACER3, SPACER4, 
          DEFAULT_TEXT_COLOR, DEFAULT_BACKGROUND_COLOR } from "../constants";
 
@@ -11,21 +11,13 @@ export default function Project(props) {
   // Hooks
   const [hover, setHover] = useState(false);
   const [click, setClick] = useState(false);
-  const [mobile, setMobile] = useState(false);
-  useEffect(() => {
-    function handleResize() {
-      window.innerWidth <= 768 ? setMobile(true) : setMobile(false);
-    }
-    window.addEventListener('load', handleResize);
-    window.addEventListener('resize', handleResize);
-  });
   
+  // Return objects
   const hoveredProject = {
     textColor: props.textColor, 
     backgroundColor: props.backgroundColor,
     image: props.image
   }
-
   const clickedProject = {
     id: props.id,
     title: props.title,
@@ -37,7 +29,6 @@ export default function Project(props) {
     date: props.date,
     url: props.url
   }
-
   const resetProject = {
     backgroundColor: DEFAULT_BACKGROUND_COLOR
   }
@@ -45,7 +36,7 @@ export default function Project(props) {
   return (
     <li 
       id={props.id}
-      style={{ marginBottom: SPACER1, cursor: (props.hover.id === undefined ||props.hover.id === props.id) ? "pointer" : "default" }} 
+      style={{ marginBottom: !props.last && SPACER1, cursor: (props.hover.id === undefined ||props.hover.id === props.id) ? "pointer" : "default" }} 
       className="item"
       onMouseEnter={() => { 
         // Hover state if no project clicked or if it is the clicked project
@@ -65,7 +56,7 @@ export default function Project(props) {
       onClick={() => {
         // Click state if no project clicked or if it is the clicked project
         if ((props.hover.id === undefined) || props.click.id === props.id) {
-          if (!mobile) {
+          if (!props.mobile) {
             setClick(!click); 
           }
           !click ? props.click.fn(clickedProject) : props.click.fn({});
@@ -81,7 +72,7 @@ export default function Project(props) {
         {/* Title */}
         <h2 
           className={"item__title " + (click ? "item__title--click" : (hover ? "item__title--hover" : ""))}
-          style={{ color: (hover || click || mobile) ? props.textColor : DEFAULT_TEXT_COLOR }}
+          style={{ color: (hover || click || props.mobile) ? props.textColor : DEFAULT_TEXT_COLOR }}
         >
           {props.title}
         </h2>
@@ -89,7 +80,14 @@ export default function Project(props) {
       
       {/* Expand */}
       <div 
-        className={"item__expand " + (click ? "item__expand--rotate fadeIn " : ((hover || mobile) ? "fadeIn" : "fadeOut"))}
+        className={"item__expand " + (click ? "item__expand--rotate fadeIn " : ((hover || props.mobile) ? "fadeIn" : "fadeOut"))}
+        style={{
+          background: "linear-gradient(" + props.textColor + ", " + props.textColor + "), linear-gradient(" + props.textColor + ", " + props.textColor + "), " + props.backgroundColor,
+          backgroundPosition: "center", 
+          backgroundSize: "100% 2px, 2px 100%", 
+          backgroundRepeat: "no-repeat",
+          backgroundColor: "transparent"
+        }}
       ></div>
     </li>
   );

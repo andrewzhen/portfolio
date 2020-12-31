@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Helmet from "react-helmet";
 import Nav from "../components/Nav";
 import Blurb from "../components/Blurb";
@@ -24,6 +24,14 @@ export default function Home() {
   const [rgb, setRgb] = useState({});
   const [fade, setFade] = useState(false);
   const [clicked, setClicked] = useState({});
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    function handleResize() {
+      window.innerWidth <= 768 ? setMobile(true) : setMobile(false);
+    }
+    window.addEventListener('load', handleResize);
+    window.addEventListener('resize', handleResize);
+  });
 
   // Hover callback
   const hoverCallback = project => {
@@ -62,7 +70,9 @@ export default function Home() {
   return (
     <main 
       className="main" 
-      style={{ backgroundColor: clicked.backgroundColor || hovered.backgroundColor }}
+      style={{ 
+        backgroundColor: mobile ? (fade ? clicked.backgroundColor : DEFAULT_BACKGROUND_COLOR) : (clicked.backgroundColor || hovered.backgroundColor)
+      }}
     >
       <div 
         className="content"
@@ -81,7 +91,10 @@ export default function Home() {
         <div className="work">
           {/* List */}
           <ul 
-            className={"work__list sticky " + (fade ? "slideLeft" : "slideReset")}
+            className={
+              "work__list sticky " + 
+              (mobile && fade ? "slideLeft" : "slideReset")
+            }
             style={{ marginBottom: SPACER3 }}
           >
             {projects.map((project, idx) => 
@@ -98,36 +111,54 @@ export default function Home() {
                 url={project.url}
                 hover={{id: clicked.id, fn: hoverCallback}}
                 click={{id: clicked.id, fn: clickCallback}}
+                mobile={mobile}
+                last={projects.length === idx + 1}
               />
             )}
           </ul>
 
           {/* Thumbnail */}
           <div 
-            className={"work__thumbnail " + (fade ? "slideReset" : "slideRight")}
-            style={{ marginBottom: SPACER5, maxHeight: fade ? "200vh" : "19.5vw" }}
+            className={
+              "work__thumbnail " + 
+              (mobile ? (fade ? "slideReset" : "slideRight") : "slideReset")
+            }
+            style={{ 
+              marginBottom: (mobile && !fade && SPACER2) || SPACER5, 
+              maxHeight: fade ? "200vh" : "19.5vw"
+            }}
           >
             <img 
-              src={clicked.image || hovered.image } 
+              src={ mobile ? clicked.image : (clicked.image || hovered.image) } 
               className={"work__thumbnail__image"} 
             />
             <div 
               className="bottom-dropOff"
-              style={{background: clicked.image ? "" : "linear-gradient(0deg, " + hovered.backgroundColor + " 0%, rgba(" + rgb.r + ", " + rgb.g + ", " + rgb.b + ", 0) 100%"}}
+              style={{
+                background: 
+                  clicked.image ? "" : 
+                  "linear-gradient(0deg, " + hovered.backgroundColor + " 0%, rgba(" + rgb.r + ", " + rgb.g + ", " + rgb.b + ", 0) 100%"
+              }}
             ></div>
           </div>
 
           {/* Mobile title */}
           <div 
-            className={"item item--mobile sticky " + (fade ? "slideReset" : "slideRight")}
-            style={{ marginBottom: SPACER2 }}
+            className={
+              "item item--mobile sticky " + 
+              (mobile ? (fade ? "slideReset" : "slideRight") : "slideReset")
+            }
+            style={{ 
+              display: (mobile ? "flex" : "none"), 
+              marginBottom: SPACER2 
+            }}
           >
             <h2 style={{ color: clicked.textColor }}>
               {clicked.title}
             </h2>
 
             <div
-              className="item__expand item__expand--rotate fadeIn"
+              className="item__close fadeIn"
               style={{ cursor: "pointer" }}
               onClick={() => { clickCallback({}); }}
             ></div>
@@ -135,20 +166,33 @@ export default function Home() {
 
           {/* Details */}
           <div 
-            className={"work__details sticky " + (fade ? "fadeIn" : "fadeOut") + " " + (fade ? "slideReset" : "slideRight")}
-            style={{ marginBottom: SPACER3, top: "6rem" }}
+            className={
+              "work__details sticky " + 
+              (fade ? "fadeIn" : "fadeOut") + " " + 
+              (mobile ? (fade ? "slideReset" : "slideRight") : "slideReset")
+            }
+            style={{ 
+              marginBottom: SPACER3, 
+              top: "6rem" 
+            }}
           >
-            <p style={{ marginBottom: SPACER1 }}>{clicked.description}</p>
-            <p style={{ marginBottom: SPACER1 }}>{clicked.tools}</p>
-            <p style={{ marginBottom: SPACER2 }}>{clicked.date}</p>
-            {clicked.description && <a 
-              className={"work__details__button" }
-              style={{ color: clicked.backgroundColor, backgroundColor: clicked.textColor }}
-              href={clicked.url}
+            <p style={{ marginBottom: SPACER1 }}>{ clicked.description }</p>
+            <p style={{ marginBottom: SPACER1 }}>{ clicked.tools }</p>
+            <p style={{ marginBottom: SPACER2 }}>{ clicked.date }</p>
+            
+            {clicked.description && 
+            <a 
+              className={ "work__details__button" }
+              style={{ 
+                color: clicked.backgroundColor, 
+                backgroundColor: clicked.textColor 
+              }}
+              href={ clicked.url }
               target="__blank"
             >
               Visit Site
-            </a>}
+            </a>
+            }
           </div>
         </div>
 
