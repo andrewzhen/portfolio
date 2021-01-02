@@ -139,8 +139,7 @@ export default function Home() {
             }
             style={{ 
               marginBottom: (mobile && !fade && SPACER2) || SPACER5, 
-              maxHeight: fade ? "600vh" : "19.5vw",
-              overflow: fade ? "visible" : "hidden"
+              maxHeight: fade ? "600vh" : "19.5vw"
             }}
           >
             <img 
