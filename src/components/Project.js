@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { SPACER1, SPACER2, SPACER3, SPACER4, 
-         DEFAULT_TEXT_COLOR, DEFAULT_BACKGROUND_COLOR } from "../constants";
+import { DEFAULT_TEXT_COLOR, DEFAULT_BACKGROUND_COLOR } from "../constants";
 
 export default function Project(props) {
   // Helpers

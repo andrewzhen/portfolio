@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { SPACER1 } from "../constants";
 
 export default function Tab(props) {
   const [hover, setHover] = useState(false);
@@ -19,6 +18,7 @@ export default function Tab(props) {
         className="item item--link"
         href={props.url} 
         target="_blank"
+        rel="noreferrer"
       >
         {/* Top divider */}
         <div className="item__divider"></div>
@@ -41,6 +41,7 @@ export default function Tab(props) {
         <img 
           className="item--link__image"
           src="icons/arrow.svg" 
+          alt=""
         /> 
       </a>
 

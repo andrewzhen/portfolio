@@ -1,5 +1,5 @@
 import React from "react";
-import { SPACER1, SPACER2, SPACER3, SPACER4 } from "../constants";
+import { SPACER2 } from "../constants";
 
 export default function Footer() {
   return (
@@ -18,6 +18,7 @@ export default function Footer() {
             <a 
               href="resume.pdf" 
               target="_blank"
+              rel="noreferrer"
               className="nav__list__item"
             >
               Resume
@@ -27,6 +28,7 @@ export default function Footer() {
             <a 
               href="https://www.linkedin.com/in/andrew-zhen/" 
               target="_blank"
+              rel="noreferrer"
               className="nav__list__item"
             >
               LinkedIn

@@ -5,7 +5,7 @@ import Blurb from "../components/Blurb";
 import Project from "../components/Project";
 import { projects } from "../projects";
 import Footer from "../components/Footer";
-import { SPACER1, SPACER2, SPACER3, SPACER4, SPACER5,  
+import { SPACER1, SPACER2, SPACER3, SPACER5,  
          DEFAULT_BACKGROUND_COLOR, DEFAULT_TEXT_COLOR } from "../constants";
 
 export default function Home() {
@@ -145,6 +145,7 @@ export default function Home() {
             <img 
               src={ mobile ? clicked.image : (clicked.image || hovered.image) } 
               className={"work__thumbnail__image"} 
+              alt={clicked.title}
             />
             <div 
               className="bottom-dropOff"

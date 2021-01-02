@@ -1,5 +1,5 @@
 import React from "react";
-import { SPACER1, SPACER2, SPACER3, SPACER4 } from "../constants";
+import { SPACER3 } from "../constants";
 
 export default function Blurb(props) {
   return (

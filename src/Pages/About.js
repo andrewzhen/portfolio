@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import Nav from "../components/Nav";
 import Blurb from "../components/Blurb";
 import Footer from "../components/Footer";
-import { SPACER1, SPACER2, SPACER3, SPACER4, SPACER5 } from "../constants";
+import { SPACER1, SPACER3, SPACER5 } from "../constants";
 
 export default function About() {
   return (
@@ -40,6 +40,7 @@ export default function About() {
             <img 
               className="two-column__image"
               src={"images/portrait.jpg"} 
+              alt="portrait"
             />
             <div  className="left-dropOff"></div>
           </div>

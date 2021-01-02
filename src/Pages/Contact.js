@@ -4,7 +4,7 @@ import Nav from "../components/Nav";
 import Blurb from "../components/Blurb";
 import Tab from "../components/Tab";
 import ContactFooter from "../components/ContactFooter";
-import { SPACER1, SPACER2, SPACER3, SPACER4, SPACER5 } from "../constants";
+import { SPACER3, SPACER5 } from "../constants";
 
 export default function Contact() {
   return (
@@ -52,6 +52,7 @@ export default function Contact() {
             <img 
               className="two-column__image" 
               src={"images/contact.jpg"} 
+              alt=""
             />
             <div className="left-dropOff"></div>
           </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SPACER1, SPACER2, SPACER3, SPACER4 } from "../constants";
+import { SPACER2, SPACER3 } from "../constants";
 
 export default function Nav(props) {
   return (
