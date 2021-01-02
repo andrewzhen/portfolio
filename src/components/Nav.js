@@ -17,7 +17,7 @@ export default function Nav(props) {
                 }
                 style={{ marginRight: SPACER2 }}
               >
-                Andrew <span id="home">Zhen</span>
+                Andrew Zhen
               </Link>
             </li>
           </div>

@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="foot-nav">
       <ul className="nav__list">
-        <div className="nav__list">
+        <div className="nav__list nav__list--foot">
           <li style={{ marginRight: SPACER2 }}>
             <a 
               href="mailto:andrewjzhen@gmail.com"
@@ -16,14 +16,14 @@ export default function Footer() {
           </li>
           <li style={{ marginRight: SPACER2 }}>
             <a 
-              href="../resume.pdf" 
+              href="resume.pdf" 
               target="_blank"
               className="nav__list__item"
             >
               Resume
             </a>
           </li>
-          <li style={{ marginRight: SPACER2 }}>
+          <li>
             <a 
               href="https://www.linkedin.com/in/andrew-zhen/" 
               target="_blank"

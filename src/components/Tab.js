@@ -6,8 +6,7 @@ export default function Tab(props) {
 
   return (
     <li 
-      className="item"
-      style={{ marginBottom: SPACER1 }}
+      className="tab"
       onMouseEnter={() => {
         setHover(true);
       }}
@@ -15,20 +14,41 @@ export default function Tab(props) {
         setHover(false);
       }}
     >
-      <div>
-        {/* Tab */}
-        <div className={"item__tab " + (hover ? "item__tab--hover" : "")}></div>
+      {/* Link */}
+      <a 
+        className="item item--link"
+        href={props.url} 
+        target="_blank"
+      >
+        {/* Top divider */}
+        <div className="item__divider"></div>
 
-        {/* Link */}
-        <a 
-          href={props.url} 
-          target="_blank"
-        >
-          <h2 className={"item__title " + (hover ? "item__title--hover" : "")} >
-            {props.text}
-          </h2>
-        </a>
-      </div>
+        {/* Tab */}
+        <div className={
+          "item__tab " + 
+          (hover ? "item__tab--hover" : "")
+        }></div>
+        
+        {/* Title */}
+        <h2 className={
+          "item__title " + 
+          (hover ? "item__title--hover" : "")
+        }>
+          {props.text}
+        </h2>
+
+        {/* Arrow */}
+        <img 
+          className="item--link__image"
+          src="icons/arrow.svg" 
+        /> 
+      </a>
+
+      {/* Bottom divider */}
+      {
+        props.last && 
+        <div className="item__divider item__divider--bottom"></div>
+      }
     </li>
   )
 }

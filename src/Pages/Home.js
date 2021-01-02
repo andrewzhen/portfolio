@@ -24,14 +24,25 @@ export default function Home() {
   const [rgb, setRgb] = useState({});
   const [fade, setFade] = useState(false);
   const [clicked, setClicked] = useState({});
-  const [mobile, setMobile] = useState(false);
+  const [mobile, setMobile] = useState(window.innerWidth <= 768);
+  
   useEffect(() => {
-    function handleResize() {
-      window.innerWidth <= 768 ? setMobile(true) : setMobile(false);
-    }
     window.addEventListener('load', handleResize);
     window.addEventListener('resize', handleResize);
   });
+
+  // Resizer
+  function handleResize() {
+    // Detect change to/from mobile
+    if (mobile !== (window.innerWidth <= 768)) {
+      if (!mobile) {
+        setMobile(true);
+      } else {
+        setMobile(false);
+      }
+    }
+    // setMobile(window.innerWidth <= 768);
+  }
 
   // Hover callback
   const hoverCallback = project => {
@@ -95,7 +106,10 @@ export default function Home() {
               "work__list sticky " + 
               (mobile && fade ? "slideLeft" : "slideReset")
             }
-            style={{ marginBottom: SPACER3 }}
+            style={{ 
+              marginBottom: SPACER5,
+              marginTop: mobile ? "0" : "-" + SPACER1
+            }}
           >
             {projects.map((project, idx) => 
               <Project 
@@ -109,8 +123,8 @@ export default function Home() {
                 tools={project.tools}
                 date={project.date}
                 url={project.url}
-                hover={{id: clicked.id, fn: hoverCallback}}
-                click={{id: clicked.id, fn: clickCallback}}
+                hover={hoverCallback}
+                click={{id: clicked.id, fn: clickCallback, state: fade}}
                 mobile={mobile}
                 last={projects.length === idx + 1}
               />
@@ -173,7 +187,7 @@ export default function Home() {
             }
             style={{ 
               marginBottom: SPACER3, 
-              top: "6rem" 
+              top: mobile ? "6rem" : "3rem"
             }}
           >
             <p style={{ marginBottom: SPACER1 }}>{ clicked.description }</p>

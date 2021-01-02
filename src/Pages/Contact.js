@@ -4,7 +4,7 @@ import Nav from "../components/Nav";
 import Blurb from "../components/Blurb";
 import Tab from "../components/Tab";
 import ContactFooter from "../components/ContactFooter";
-import { SPACER1, SPACER2, SPACER3, SPACER4 } from "../constants";
+import { SPACER1, SPACER2, SPACER3, SPACER4, SPACER5 } from "../constants";
 
 export default function Contact() {
   return (
@@ -19,11 +19,14 @@ export default function Contact() {
         <Blurb text="Drop a line" />
 
         <div className="two-column">
-          <div>
+          <div 
+            className="two-column__list"
+            style={{ marginBottom: SPACER3 }}
+          >
             <ul>
               <Tab 
                 text="resume.pdf*" 
-                url="/resume.pdf" 
+                url="resume.pdf" 
               />
               <Tab 
                 text="andrewjzhen@gmail.com" 
@@ -40,19 +43,17 @@ export default function Contact() {
               <Tab
                 text="instagram.com/a.jzhen"
                 url="https://www.instagram.com/a.jzhen/"
+                last="true"
               />
             </ul>
           </div>
 
-          <div>
+          <div style={{ marginBottom: SPACER5 }}>
             <img 
               className="two-column__image" 
               src={"images/contact.jpg"} 
             />
-            <div 
-              className="left-dropOff"
-              style={{ background: "linear-gradient(90deg, #111111 0%, rgba(17, 17, 17, 0) 100%)" }}
-            ></div>
+            <div className="left-dropOff"></div>
           </div>
         </div>
 

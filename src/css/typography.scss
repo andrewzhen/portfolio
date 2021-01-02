@@ -63,6 +63,18 @@ a {
   font-family: "Soehne Breit Halbfett";
 }
 
+.nav__list * {
+  @include xs {
+    font-size: 3.8vw;
+  }
+}
+
+.item__title {
+  @include s {
+    font-size: 3.85vw;
+  }
+}
+
 .work__details {
   font-family: "Soehne Breit Halbfett", "Suisse BP Int'l Bold", -apple-system, sans-serif;
   font-size: 0.8rem;

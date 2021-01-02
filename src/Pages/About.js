@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import Nav from "../components/Nav";
 import Blurb from "../components/Blurb";
 import Footer from "../components/Footer";
-import { SPACER1, SPACER2, SPACER3, SPACER4 } from "../constants";
+import { SPACER1, SPACER2, SPACER3, SPACER4, SPACER5 } from "../constants";
 
 export default function About() {
   return (
@@ -18,30 +18,30 @@ export default function About() {
         <Blurb text="75% dev, 24% design, and 1% noodles" />
 
         <div className="two-column">
-          <div>
+          <div style={{ marginBottom: SPACER3 }}>
             <p style={{ marginBottom: SPACER1 }}>
-              I’m a 4th year Cognitive Science–Design major at UCSD and an aspiring UX engineer with a passion and skillset in design prototyping, front-end development, and collaboration!
+              Hi! I'm a new graduate from UCSD where I studied Cognitive Science – Design Interaction as well as a bit of Computer Science and Data Science.
             </p>
 
             <p style={{ marginBottom: SPACER1 }}>
-              Currently, I design and develop websites at UCSD’s graphic design agency, @ A.S. Graphic Studio, and lead workshops and code away with React.js @ Design Co, UCSD’s pre-professional design organization.
+              With a passion and skillset in front-end development, design prototyping, and collaboration, I'm looking for an exciting, mission-driven opportunity.
             </p>
 
             <p style={{ marginBottom: SPACER1 }}>
-              Previously, I worked as a UX developer @ UCSD’s IT Services and @ The Center for Applied Internet Data Analysis (Supercomputer Center).
+              Previously, I designed and developed websites at A.S. Graphic Studio, UCSD’s graphic design agency. I also lead workshops and helped build out our website at Design Co, UCSD’s pre-professional design organization. Before that, I was a UX developer at UCSD’s IT Services and also at the San Diego Supercomputer Center.
             </p>
 
             <p>
-              Away from my computer, I’m a big fan of basketball, architecture, and photosynthesizing in the sun. I'm also on a quest to find the best spicy chicken sandwhich. Come talk to me about your favorite topic; I'd love to hear from you!
+              When I'm not a desk potato, I’m a big fan of basketball, interior design, and photosynthesizing in the sun. I'm also on a quest to find the best spicy chicken sandwich. If none of these topics apply, come talk to me about your favorite thing; I'd love to hear from you!
             </p>
           </div>
 
-          <div>
-            <img src={"images/portrait.jpg"} />
-            <div 
-              className="left-dropOff"
-              style={{ background: "linear-gradient(90deg, #111111 0%, rgba(17, 17, 17, 0) 100%)" }}
-            ></div>
+          <div style={{ marginBottom: SPACER5 }}>
+            <img 
+              className="two-column__image"
+              src={"images/portrait.jpg"} 
+            />
+            <div  className="left-dropOff"></div>
           </div>
         </div>
 

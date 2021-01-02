@@ -3,14 +3,15 @@ import { SPACER1, SPACER2, SPACER3, SPACER4,
          DEFAULT_TEXT_COLOR, DEFAULT_BACKGROUND_COLOR } from "../constants";
 
 export default function Project(props) {
-  // Helper
+  // Helpers
   function updateTextColor(color) {
     document.documentElement.style.setProperty('--variable-text-color', color);
   }
 
-  // Hooks
+  var clicked = props.click.id === props.id;
+
+  // Hook
   const [hover, setHover] = useState(false);
-  const [click, setClick] = useState(false);
   
   // Return objects
   const hoveredProject = {
@@ -36,43 +37,56 @@ export default function Project(props) {
   return (
     <li 
       id={props.id}
-      style={{ marginBottom: !props.last && SPACER1, cursor: (props.hover.id === undefined ||props.hover.id === props.id) ? "pointer" : "default" }} 
+      style={{ 
+        cursor: (props.click.id === undefined || props.click.id === props.id) ? "pointer" : "default" 
+      }} 
       className="item"
       onMouseEnter={() => { 
-        // Hover state if no project clicked or if it is the clicked project
-        if ((props.hover.id === undefined) || props.hover.id === props.id) {
+        // Set hover if no project clicked or if is target project
+        if (props.click.id === undefined || props.click.id === props.id) {
           setHover(true); 
           updateTextColor(props.textColor);
-          props.hover.fn(hoveredProject); 
+          props.hover(hoveredProject); 
         }
       }}
       onMouseLeave={() => { 
-        // Hover state if no project clicked or if it is the clicked project
-        if ((props.hover.id === undefined) || props.hover.id === props.id) {
+        // Set hover if no project clicked or if is target project
+        if (props.click.id === undefined || props.click.id === props.id) {
           setHover(false); 
-          props.hover.fn(resetProject); 
+          props.hover(resetProject); 
         }
       }}
       onClick={() => {
-        // Click state if no project clicked or if it is the clicked project
-        if ((props.hover.id === undefined) || props.click.id === props.id) {
-          if (!props.mobile) {
-            setClick(!click); 
-          }
-          !click ? props.click.fn(clickedProject) : props.click.fn({});
+        // If no project clicked or if is the target project
+        if (props.click.id === undefined || props.click.id === props.id) {
+          // Toggle clicked project
+          props.click.state ? props.click.fn({}) : props.click.fn(clickedProject);
         }
       }}
     >
+      {/* Top divider */}
+      <div className="item__divider"></div>
+
       <div>
         {/* Tab */}
         <div 
-          className={"item__tab " + (click ? "item__tab--click" : (hover ? "item__tab--hover" : ""))}
-          style={{ backgroundColor: (hover || click) ? props.textColor : DEFAULT_TEXT_COLOR }}
+          className={
+            "item__tab " + 
+            (clicked ? "item__tab--click" : (hover ? "item__tab--hover" : ""))
+          }
+          style={{ 
+            backgroundColor: (hover || clicked) ? props.textColor : DEFAULT_TEXT_COLOR 
+          }}
         ></div>  
         {/* Title */}
         <h2 
-          className={"item__title " + (click ? "item__title--click" : (hover ? "item__title--hover" : ""))}
-          style={{ color: (hover || click || props.mobile) ? props.textColor : DEFAULT_TEXT_COLOR }}
+          className={
+            "item__title " + 
+            (clicked ? "item__title--click" : (hover ? "item__title--hover" : ""))
+          }
+          style={{ 
+            color: (hover || clicked || props.mobile) ? props.textColor : DEFAULT_TEXT_COLOR 
+          }}
         >
           {props.title}
         </h2>
@@ -80,7 +94,10 @@ export default function Project(props) {
       
       {/* Expand */}
       <div 
-        className={"item__expand " + (click ? "item__expand--rotate fadeIn " : ((hover || props.mobile) ? "fadeIn" : "fadeOut"))}
+        className={
+          "item__expand " + 
+          (clicked ? "item__expand--rotate fadeIn " : ((hover || props.mobile) ? "fadeIn" : "fadeOut"))
+        }
         style={{
           background: "linear-gradient(" + props.textColor + ", " + props.textColor + "), linear-gradient(" + props.textColor + ", " + props.textColor + "), " + props.backgroundColor,
           backgroundPosition: "center", 
@@ -89,6 +106,12 @@ export default function Project(props) {
           backgroundColor: "transparent"
         }}
       ></div>
+
+      {/* Bottom divider */}
+      {
+        props.last && 
+        <div className="item__divider item__divider--bottom"></div>
+      }
     </li>
   );
 }
