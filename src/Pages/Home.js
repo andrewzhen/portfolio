@@ -145,6 +145,7 @@ export default function Home() {
             <img 
               src={ mobile ? clicked.image : (clicked.image || hovered.image) } 
               className={"work__thumbnail__image"} 
+              style={{ display: (clicked.image || hovered.image) ? "block" : "none" }}
               alt={clicked.title}
             />
             <div 

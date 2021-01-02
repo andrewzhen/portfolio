@@ -304,7 +304,6 @@ a {
   }
 
   @at-root #{&}__thumbnail {
-    // position: relative;
     z-index: 3;
     width: calc(100% - 23rem - 25vw);
     overflow: hidden;
