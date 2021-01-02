@@ -139,7 +139,7 @@ export default function Home() {
             }
             style={{ 
               marginBottom: (mobile && !fade && SPACER2) || SPACER5, 
-              maxHeight: fade ? "200vh" : "19.5vw"
+              maxHeight: fade ? "600vh" : "19.5vw"
             }}
           >
             <img 
@@ -187,7 +187,7 @@ export default function Home() {
               (mobile ? (fade ? "slideReset" : "slideRight") : "slideReset")
             }
             style={{ 
-              marginBottom: SPACER3, 
+              marginBottom: mobile ? SPACER3 : SPACER5, 
               top: mobile ? "6rem" : "3rem"
             }}
           >

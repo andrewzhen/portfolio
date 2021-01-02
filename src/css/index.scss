@@ -157,6 +157,7 @@ a {
     position: relative;
     transition: $timing;
     transform: rotate(45deg);
+    margin: $spacer1 / 2;
 
     &::before {
       content: " ";
@@ -274,11 +275,13 @@ a {
 
 .slideRight {
   position: absolute;
+  z-index: 2;
   transform: translateX(110%);
 }
 
 .slideReset {
   position: sticky;
+  z-index: 2;
   transform: translateX(0);
 }
 
