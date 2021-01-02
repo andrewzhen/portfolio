@@ -256,7 +256,7 @@ a {
 
 .sticky {
   position: sticky;
-  z-index: 1;
+  z-index: -100;
   top: $spacer2;
   align-self: flex-start;
 
@@ -305,7 +305,7 @@ a {
 
   @at-root #{&}__thumbnail {
     position: relative;
-    z-index: 3 !important;
+    z-index: 100;
     width: calc(100% - 23rem - 25vw);
     overflow: hidden;
     transition: max-height $timing * 2, transform $timing;
