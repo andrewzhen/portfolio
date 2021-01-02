@@ -256,6 +256,7 @@ a {
 
 .sticky {
   position: sticky;
+  z-index: 1;
   top: $spacer2;
   align-self: flex-start;
 
@@ -275,13 +276,11 @@ a {
 
 .slideRight {
   position: absolute;
-  z-index: 2;
   transform: translateX(110%);
 }
 
 .slideReset {
   position: sticky;
-  z-index: 2;
   transform: translateX(0);
 }
 
@@ -306,7 +305,7 @@ a {
 
   @at-root #{&}__thumbnail {
     position: relative;
-    z-index: 3;
+    z-index: 3 !important;
     width: calc(100% - 23rem - 25vw);
     overflow: hidden;
     transition: max-height $timing * 2, transform $timing;

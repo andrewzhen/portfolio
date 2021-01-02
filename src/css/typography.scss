@@ -59,6 +59,10 @@ h2 {
   }
 }
 
+p {
+  font-family: "Soehne Breit Kraftig", "Suisse BP Int'l Bold", -apple-system, sans-serif;
+}
+
 a {
   font-family: "Soehne Breit Halbfett";
 }
@@ -77,10 +81,6 @@ a {
 
 .work__details {
   font-family: "Soehne Breit Halbfett", "Suisse BP Int'l Bold", -apple-system, sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   line-height: 140%;
-
-  @include md {
-    font-size: 1.2vw;
-  }
 }
