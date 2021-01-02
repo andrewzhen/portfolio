@@ -255,6 +255,7 @@ a {
 }
 
 .sticky {
+  position: -webkit-sticky;
   position: sticky;
   z-index: 0;
   top: $spacer2;
@@ -265,6 +266,7 @@ a {
   }
 
   @include sm {
+    position: -webkit-sticky;
     position: sticky;
   }
 }
@@ -280,6 +282,7 @@ a {
 }
 
 .slideReset {
+  position: -webkit-sticky;
   position: sticky;
   transform: translateX(0);
 }
@@ -305,7 +308,7 @@ a {
 
   @at-root #{&}__thumbnail {
     position: relative;
-    z-index: 100;
+    z-index: 3;
     width: calc(100% - 23rem - 25vw);
     overflow: hidden;
     transition: max-height $timing * 2, transform $timing;
