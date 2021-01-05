@@ -5,11 +5,11 @@ export default function ContactFooter() {
     <footer className="foot-nav">
       <ul className="nav__list">
         <div className="nav__list">
-          <p>*Updated Nov 8, 2020</p>
+          <p>*Updated January 2021</p>
         </div>
 
         <div>
-          <p>&#169; 2020</p>
+          <p>&#169; 2021</p>
         </div>
       </ul>
     </footer>

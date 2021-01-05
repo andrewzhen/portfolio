@@ -37,7 +37,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <p id="year">&#169; 2020</p>
+          <p id="year">&#169; 2021</p>
         </div>
       </ul>
     </footer>
