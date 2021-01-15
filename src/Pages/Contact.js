@@ -53,6 +53,8 @@ export default function Contact() {
               className="two-column__image" 
               src={"images/contact.jpg"} 
               alt=""
+              width="450px"
+              height="450px"
             />
             <div className="left-dropOff"></div>
           </div>

@@ -7,21 +7,20 @@ export default function Nav(props) {
     <header style={{ marginBottom: SPACER3 }}>
       <nav className="head-nav">
         <ul className="nav__list">
-          <div>
-            <li>
-              <Link 
-                to="/" 
-                className={
-                  "nav__list__item " + 
-                  (props.from === "home" ? "nav__list__item--active" : undefined)
-                }
-                style={{ marginRight: SPACER2 }}
-              >
-                Andrew Zhen
-              </Link>
-            </li>
-          </div>
-          <div className="nav__list">
+          <li>
+            <Link 
+              to="/" 
+              className={
+                "nav__list__item " + 
+                (props.from === "home" ? "nav__list__item--active" : undefined)
+              }
+              style={{ marginRight: SPACER2 }}
+              tabIndex="0"
+            >
+              Andrew Zhen
+            </Link>
+          </li>
+          <ul className="nav__list">
             <li>
               <Link 
                 to="/about" 
@@ -30,6 +29,7 @@ export default function Nav(props) {
                   (props.from === "about" ? "nav__list__item--active" : undefined)
                 }
                 style={{ marginRight: SPACER2 }}
+                tabIndex="0"
               >
                 About
               </Link>
@@ -45,7 +45,7 @@ export default function Nav(props) {
                 Contact
               </Link>
             </li>
-          </div>
+          </ul>
         </ul>
       </nav>
     </header>

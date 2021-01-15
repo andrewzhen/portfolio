@@ -4,13 +4,13 @@ export default function ContactFooter() {
   return (
     <footer className="foot-nav">
       <ul className="nav__list">
-        <div className="nav__list">
-          <p>*Updated January 2021</p>
-        </div>
+        <li className="nav__list">
+          <p>*Updated Jan 2021</p>
+        </li>
 
-        <div>
+        <li>
           <p>&#169; 2021</p>
-        </div>
+        </li>
       </ul>
     </footer>
   );

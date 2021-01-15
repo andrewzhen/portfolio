@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="foot-nav">
       <ul className="nav__list">
-        <div className="nav__list nav__list--foot">
+        <ul className="nav__list nav__list--foot">
           <li style={{ marginRight: SPACER2 }}>
             <a 
               href="mailto:andrewjzhen@gmail.com"
@@ -34,11 +34,11 @@ export default function Footer() {
               LinkedIn
             </a>
           </li>
-        </div>
+        </ul>
 
-        <div>
+        <li>
           <p id="year">&#169; 2021</p>
-        </div>
+        </li>
       </ul>
     </footer>
   );
