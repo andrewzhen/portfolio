@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import Nav from "../components/Nav";
 import Blurb from "../components/Blurb";
 import Footer from "../components/Footer";
-import { SPACER1, SPACER3, SPACER5 } from "../constants";
+import { SPACER1, SPACER5 } from "../constants";
 
 export default function About() {
   return (
