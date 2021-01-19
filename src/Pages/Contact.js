@@ -51,7 +51,7 @@ export default function Contact() {
           <div style={{ marginBottom: SPACER5 }}>
             <img 
               className="two-column__image" 
-              src={"images/contact.jpg"} 
+              src={"images/contact.webp"} 
               alt=""
               width="450px"
               height="450px"

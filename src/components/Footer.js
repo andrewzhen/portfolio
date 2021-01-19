@@ -17,7 +17,6 @@ export default function Footer() {
           <li style={{ marginRight: SPACER2 }}>
             <a 
               href="resume.pdf" 
-              target="_blank"
               rel="noreferrer"
               className="nav__list__item"
             >
@@ -27,7 +26,6 @@ export default function Footer() {
           <li>
             <a 
               href="https://www.linkedin.com/in/andrew-zhen/" 
-              target="_blank"
               rel="noreferrer"
               className="nav__list__item"
             >

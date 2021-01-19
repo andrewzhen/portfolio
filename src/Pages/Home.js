@@ -69,15 +69,6 @@ export default function Home() {
     document.documentElement.style.setProperty('--variable-text-color', project.title ? project.textColor : DEFAULT_TEXT_COLOR);
   }
 
-  // const imgs = projects.map(project => project.image);
-
-  // useEffect(() => {
-  //   imgs.forEach(img => {
-  //     const preload = new Image;
-  //     preload.src = img.fileName;
-  //   });
-  // });
-
   return (
     <main 
       className="main" 
@@ -118,11 +109,13 @@ export default function Home() {
                 title={project.title}
                 textColor={project.textColor}
                 backgroundColor={project.backgroundColor} 
-                image={project.image}
+                base={project.base}
+                images={project.images}
                 description={project.description}
                 tools={project.tools}
                 date={project.date}
                 url={project.url}
+                code={project.code}
                 hover={hoverCallback}
                 click={{id: clicked.id, fn: clickCallback, state: fade}}
                 mobile={mobile}
@@ -139,20 +132,37 @@ export default function Home() {
             }
             style={{ 
               marginBottom: (mobile && !fade && SPACER2) || SPACER5, 
-              maxHeight: fade ? "600vh" : "19.5vw"
+              maxHeight: fade ? "600vh" : "19.5vw",
+              backgroundColor: clicked.backgroundColor
             }}
           >
-            <img 
-              src={ mobile ? clicked.image : (clicked.image || hovered.image) } 
-              className={"work__thumbnail__image"} 
-              style={{ display: (clicked.image || hovered.image) ? "block" : "none" }}
-              alt={clicked.title}
-            />
+            {clicked.images ? 
+              clicked.images.map((image) => 
+                <img 
+                  src={ clicked.base + image } 
+                  className="work__thumbnail__image"
+                  style={{ 
+                    display: clicked.images ? "block" : "none",
+                    marginBottom: SPACER2 
+                  }}
+                  alt={clicked.title}
+                />
+              ) : 
+              <img 
+                src={ hovered.images ? (hovered.base + hovered.images[0]) : ""} 
+                className="work__thumbnail__image"
+                style={{ 
+                  display: hovered.images ? "block" : "none",
+                  marginBottom: SPACER2 
+                }}
+                alt={clicked.title}
+              />
+            }
             <div 
               className="bottom-dropOff"
               style={{
                 background: 
-                  clicked.image ? "" : 
+                  clicked.images ? "" : 
                   "linear-gradient(0deg, " + hovered.backgroundColor + " 0%, rgba(" + rgb.r + ", " + rgb.g + ", " + rgb.b + ", 0) 100%"
               }}
             ></div>
@@ -192,22 +202,40 @@ export default function Home() {
               top: mobile ? "6rem" : "3rem"
             }}
           >
-            <p style={{ marginBottom: SPACER1 }}>{ clicked.description }</p>
+            <p 
+              className="dropcap--work" 
+              style={{ marginBottom: SPACER1 }}
+            >
+              { clicked.description }
+            </p>
             <p style={{ marginBottom: SPACER1 }}>{ clicked.tools }</p>
             <p style={{ marginBottom: SPACER2 }}>{ clicked.date }</p>
             
             {clicked.description && 
-            <a 
-              className={ "work__details__button" }
-              style={{ 
-                color: clicked.backgroundColor, 
-                backgroundColor: clicked.textColor 
-              }}
-              href={ clicked.url }
-              target="__blank"
-            >
-              Visit Site
-            </a>
+              <div className="work__details__links">
+                <a 
+                  className="work__details__links__button work__details__links__button--site"
+                  style={{ 
+                    color: clicked.backgroundColor, 
+                    backgroundColor: clicked.textColor,
+                    marginRight: SPACER1
+                  }}
+                  href={ clicked.url }
+                >
+                  Visit Site
+                </a>
+
+                <a 
+                  className="work__details__links__button work__details__links__button--code"
+                  style={{ 
+                    color: clicked.textColor,
+                    border: "0.15rem solid " + clicked.textColor 
+                  }}
+                  href={ clicked.code }
+                >
+                  View Code
+                </a>
+              </div>
             }
           </div>
         </div>

@@ -15,7 +15,6 @@ export default function Nav(props) {
                 (props.from === "home" ? "nav__list__item--active" : undefined)
               }
               style={{ marginRight: SPACER2 }}
-              tabIndex="0"
             >
               Andrew Zhen
             </Link>
@@ -29,7 +28,6 @@ export default function Nav(props) {
                   (props.from === "about" ? "nav__list__item--active" : undefined)
                 }
                 style={{ marginRight: SPACER2 }}
-                tabIndex="0"
               >
                 About
               </Link>

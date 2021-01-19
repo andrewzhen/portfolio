@@ -19,7 +19,10 @@ export default function About() {
 
         <div className="two-column">
           <div style={{ marginBottom: SPACER5 }}>
-            <p style={{ marginBottom: SPACER1 }}>
+            <p 
+              className="dropcap--about" 
+              style={{ marginBottom: SPACER1 }}
+            >
               Hi! I'm a new graduate from UCSD where I studied Cognitive Science – Design Interaction as well as a bit of Computer Science and Data Science.
             </p>
 
@@ -39,7 +42,7 @@ export default function About() {
           <div style={{ marginBottom: SPACER5 }}>
             <img 
               className="two-column__image"
-              src={"images/portrait.jpg"} 
+              src={"images/portrait.webp"} 
               alt="portrait"
               width="450px"
               height="450px"

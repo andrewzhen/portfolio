@@ -20,6 +20,10 @@ body {
 a {
   color: $default-text-color;
   text-decoration: none;
+
+  &:focus {
+    outline: 3px solid #AE81AD;
+  }
 }
 
 .main {
@@ -334,16 +338,40 @@ a {
       width: calc(100% - 23rem);
     }
 
-    @at-root #{&}__button {
-      border: none;
-      padding: $spacer1/2 $spacer1;
-      transition: $timing;
-      display: block;
-      width: intrinsic;
-      width: -moz-max-content;
-      width: -webkit-max-content;
-      width: max-content;
+    @at-root #{&}__links {
+      display: flex;
+
+      @at-root #{&}__button {
+        padding: $spacer1/2 $spacer1;
+        transition: $timing;
+        display: flex;
+        align-items: center;
+        width: intrinsic;
+        width: -moz-max-content;
+        width: -webkit-max-content;
+        width: max-content;
+
+        @at-root #{&}--site {
+          border: none;
+        }
+
+        &:hover {
+          transform: scale(0.9);
+        }
+      }
     }
+  }
+}
+
+.dropcap {
+  @at-root #{&}--work::first-letter {
+    float: left;
+    margin: 0.3rem 0.3rem 0 0;
+  }
+
+  @at-root #{&}--about::first-letter {
+    float: left;
+    margin: 0.5rem 0.3rem 0 0;
   }
 }
 

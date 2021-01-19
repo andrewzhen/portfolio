@@ -16,18 +16,21 @@ export default function Project(props) {
   const hoveredProject = {
     textColor: props.textColor, 
     backgroundColor: props.backgroundColor,
-    image: props.image
+    base: props.base,
+    images: props.images
   }
   const clickedProject = {
     id: props.id,
     title: props.title,
     textColor: props.textColor, 
     backgroundColor: props.backgroundColor,
-    image: props.image,
+    base: props.base,
+    images: props.images,
     description: props.description,
     tools: props.tools, 
     date: props.date,
-    url: props.url
+    url: props.url,
+    code: props.code
   }
   const resetProject = {
     backgroundColor: DEFAULT_BACKGROUND_COLOR
