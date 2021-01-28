@@ -26,7 +26,7 @@ export default function Project(props) {
     backgroundColor: props.backgroundColor,
     base: props.base,
     images: props.images,
-    description: props.description,
+    descriptions: props.descriptions,
     tools: props.tools, 
     date: props.date,
     url: props.url,

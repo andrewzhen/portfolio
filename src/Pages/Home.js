@@ -111,7 +111,7 @@ export default function Home() {
                 backgroundColor={project.backgroundColor} 
                 base={project.base}
                 images={project.images}
-                description={project.description}
+                descriptions={project.descriptions}
                 tools={project.tools}
                 date={project.date}
                 url={project.url}
@@ -202,16 +202,20 @@ export default function Home() {
               top: mobile ? "6rem" : "3rem"
             }}
           >
-            <p 
-              className="dropcap--work" 
-              style={{ marginBottom: SPACER1 }}
-            >
-              { clicked.description }
-            </p>
+            { clicked.descriptions && 
+              clicked.descriptions.map((description, idx) => 
+                <p
+                  className={idx === 0 && "dropcap--work"} 
+                  style={{ marginBottom: SPACER1 }}
+                >
+                  { description }
+                </p>  
+              )
+            }
             <p style={{ marginBottom: SPACER1 }}>{ clicked.tools }</p>
             <p style={{ marginBottom: SPACER2 }}>{ clicked.date }</p>
             
-            {clicked.description && 
+            {clicked.descriptions && 
               <div className="work__details__links">
                 <a 
                   className="work__details__links__button work__details__links__button--site"
