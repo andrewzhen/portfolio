@@ -66,7 +66,7 @@ export const projects = [
 
       "My role was developing the frontend of the website by referencing Figma mockups and regularly consulting with the lead designer on branding and visual design. We also worked to deliver the website with tranditionally less time than previous years.",
 
-      "This year's theme was Sunflowers and Bubbles so the original plan—that we eventually scrapped—featured interactive bubbles that could be dragged around."
+      "This year's theme was Sunflowers and Bubbles so the original plan—which we eventually decided against—featured interactive bubbles that could be dragged around."
     ],
     tools: "HTML, SASS, JavaScript, Figma",
     date: "February 2020",
@@ -79,7 +79,13 @@ export const projects = [
     backgroundColor: "#000000",
     base: "/images/dco-levelup/",
     images: ["dco-levelup.webp", "dco-levelup-mobile.webp"],
-    descriptions: ["Design Co is a student-run, pre-professional design organization at UC San Diego. Our goal is to help our community prepare for an industry setting by supplementing their learning with weekly events which include industry talks, information sessions and workshops. Each week, we consistently see a turnout of between 50 and 100 people and students report that they form lasting connections with each other at our events."],
+    descriptions: [
+      "Level Up is a 10-week design program by Design Co that provides students with the opportunity to tackle a real-world challenge and network with experienced industry professionals. Participants will work in teams of four to produce a website showcase of project deliverables with the guidance of industry mentors.",
+
+      "My role was developing the frontend of the website by referencing Figma mockups and delivering the finished site within a week.",
+
+      "The difficulty of executing the mockups for this website was due to building the creative hover states, cursor interactions, and the floating navigation menu."
+    ],
     tools: "React, SASS, Git, Figma",
     date: "May 2020",
     url: "https://levelup.ucsddesign.co/",
@@ -91,7 +97,13 @@ export const projects = [
     backgroundColor: "#006064",
     base: "/images/dco-joinourteam/",
     images: ["dco-joinourteam.webp", "dco-joinourteam-role.webp", "dco-joinourteam-mobile.webp"],
-    descriptions: ["Design Co is a student-run, pre-professional design organization at UC San Diego. Our goal is to help our community prepare for an industry setting by supplementing their learning with weekly events which include industry talks, information sessions and workshops. Each week, we consistently see a turnout of between 50 and 100 people and students report that they form lasting connections with each other at our events."],
+    descriptions: [
+      "Design Co is a student-run, pre-professional design organization at UC San Diego. Our goal is to help our community prepare for an industry setting by supplementing their learning with weekly events that include industry speakers, information sessions, and workshops. Each week, we consistently see a turnout of between 50 and 100 people.",
+
+      "My role was developing the frontend of the website by referencing Figma mockups and delivering the finished site over the span of a weekend.",
+
+      "The challenge of this website was the time constraint but I was fortunate enough that many of the React components were already in production so I could simply reuse them. However, the pop-out job description was a new component that I had to implement."
+    ],
     tools: "React, SASS, Git, Figma",
     date: "February 2020",
     url: "http://www.ucsddesign.co/join-our-team",
@@ -103,7 +115,13 @@ export const projects = [
     backgroundColor: "#317BB7",
     base: "/images/tf-goodcleanfun/",
     images: ["tf-goodcleanfun.webp", "tf-goodcleanfun-archive.webp"],
-    descriptions: ["Triton Fest is UC San Diego’s late night, weekend event series held at the beginning of the fall and winter quarters. From delicious free food to cultural performances, from go-kart racing to live music, there’s something for everyone at each Triton Fest event."],
+    descriptions: [
+      "Triton Fest is UC San Diego’s late night, weekend event series held at the beginning of the fall and winter quarters. However, given the ongoing COVID-19 pandemic, Triton Fest has instead focused on delivering remote resources through a link-tree-style website aptly named Good Clean Fun.",
+
+      "My role was developing the frontend of the website by referencing Figma mockups and collaborating with the lead designer on this new initiative.",
+
+      "An interesting scalability problem we had was what to do with all these links week after week? Ultimately, we decided to store them in a folder disguised as a standard link."
+    ],
     tools: "HTML, CSS, JavaScript, Figma",
     date: "April 2020",
     url: "https://tritonfest.ucsd.edu/goodcleanfun/",

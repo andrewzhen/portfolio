@@ -16,7 +16,7 @@ export default function Footer() {
           </li>
           <li style={{ marginRight: SPACER2 }}>
             <a 
-              href="resume.pdf" 
+              href="Andrew_Zhen_resume.pdf" 
               rel="noreferrer"
               className="nav__list__item"
             >
