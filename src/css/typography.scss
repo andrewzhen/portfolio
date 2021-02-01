@@ -83,6 +83,11 @@ a {
   font-family: "Soehne Breit Halbfett", "Suisse BP Int'l Bold", -apple-system, sans-serif;
   font-size: 0.8rem;
   line-height: 140%;
+
+  @include xs {
+    font-size: 0.7rem;
+    line-height: 120%;
+  }
 }
 
 .dropcap--work::first-letter {
