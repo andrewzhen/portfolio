@@ -24,7 +24,7 @@ export const projects = [
     base: "/images/tf-fall2020/",
     images: ["tf-fall2020.webp", "tf-fall2020-event.webp", "tf-fall2020-mobile.webp"],
     descriptions: [
-      "Triton Fest is UC San Diego’s late night, weekend event series held at the beginning of the fall and winter quarters. From delicious free food to cultural performances, from go-kart racing to live music, there’s something for everyone at each Triton Fest event.",
+      "Triton Fest is UC San Diego’s late night, weekend event series held at the beginning of the fall & winter quarters.",
 
       "My role was developing the frontend of this website by referencing Figma mockups and contributing to pivotal design choices such as the specifics of the grid-layout and the quarterly-brand colors.",
 
@@ -116,7 +116,7 @@ export const projects = [
     base: "/images/tf-goodcleanfun/",
     images: ["tf-goodcleanfun.webp", "tf-goodcleanfun-archive.webp"],
     descriptions: [
-      "Triton Fest is UC San Diego’s late night, weekend event series held at the beginning of the fall and winter quarters. However, given the ongoing COVID-19 pandemic, Triton Fest has instead focused on delivering remote resources through a link-tree-style website aptly named Good Clean Fun.",
+      "Triton Fest is UC San Diego’s late night, weekend event series held at the beginning of the fall & winter quarters. However, given the ongoing COVID-19 pandemic, Triton Fest has instead focused on delivering remote resources through a link-tree-style website aptly named Good Clean Fun.",
 
       "My role was developing the frontend of the website by referencing Figma mockups and collaborating with the lead designer on this new initiative.",
 

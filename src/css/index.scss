@@ -271,6 +271,10 @@ a {
   @include sm {
     position: sticky;
   }
+
+  @include xs {
+    top: $spacer2;
+  }
 }
 
 .slideLeft {
@@ -329,13 +333,17 @@ a {
     box-sizing: border-box;
     transition: $timing;
 
+    @include lg {
+      padding-left: 0;
+      width: calc(100% - 23rem);
+    }
+
     @include md {
       width: 100% !important;
     }
 
-    @include lg {
-      padding-left: 0;
-      width: calc(100% - 23rem);
+    @include xs {
+      top: 5rem !important; // Small mobile device sticky top
     }
 
     @at-root #{&}__links {

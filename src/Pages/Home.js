@@ -131,23 +131,25 @@ export default function Home() {
               (mobile ? (fade ? "slideReset" : "slideRight") : "slideReset")
             }
             style={{ 
-              marginBottom: (mobile && !fade && SPACER2) || SPACER5, 
+              marginBottom: SPACER2, 
               maxHeight: fade ? "600vh" : "19.5vw",
               backgroundColor: clicked.backgroundColor
             }}
           >
             {clicked.images ? 
+              // Display all images on click
               clicked.images.map((image) => 
                 <img 
                   src={ clicked.base + image } 
                   className="work__thumbnail__image"
                   style={{ 
                     display: clicked.images ? "block" : "none",
-                    marginBottom: SPACER2 
+                    marginBottom: clicked.last ? SPACER5 : SPACER2 
                   }}
                   alt={clicked.title}
                 />
               ) : 
+              // Preview only first image on hover
               <img 
                 src={ hovered.images ? (hovered.base + hovered.images[0]) : ""} 
                 className="work__thumbnail__image"
