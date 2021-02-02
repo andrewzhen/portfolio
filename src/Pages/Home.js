@@ -138,13 +138,13 @@ export default function Home() {
           >
             {clicked.images ? 
               // Display all images on click
-              clicked.images.map((image) => 
+              clicked.images.map((image, idx) => 
                 <img 
                   src={ clicked.base + image } 
                   className="work__thumbnail__image"
                   style={{ 
                     display: clicked.images ? "block" : "none",
-                    marginBottom: clicked.last ? SPACER5 : SPACER2 
+                    marginBottom: images.length === idx + 1 ? SPACER5 : SPACER2 
                   }}
                   alt={clicked.title}
                 />

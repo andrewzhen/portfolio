@@ -26,7 +26,7 @@ export default function Contact() {
             <ul>
               <Tab 
                 text="resume.pdf*" 
-                url="resume.pdf" 
+                url="Andrew_Zhen_resume.pdf" 
               />
               <Tab 
                 text="andrewjzhen@gmail.com" 
