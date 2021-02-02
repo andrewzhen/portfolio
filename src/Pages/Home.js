@@ -144,7 +144,7 @@ export default function Home() {
                   className="work__thumbnail__image"
                   style={{ 
                     display: clicked.images ? "block" : "none",
-                    marginBottom: images.length === idx + 1 ? SPACER5 : SPACER2 
+                    marginBottom: clicked.images.length === idx + 1 ? SPACER5 : SPACER2 
                   }}
                   alt={clicked.title}
                 />
