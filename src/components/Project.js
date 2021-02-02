@@ -30,7 +30,8 @@ export default function Project(props) {
     tools: props.tools, 
     date: props.date,
     url: props.url,
-    code: props.code
+    code: props.code,
+    last: props.last
   }
   const resetProject = {
     backgroundColor: DEFAULT_BACKGROUND_COLOR
