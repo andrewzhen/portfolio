@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import Nav from "../components/Nav";
 import Blurb from "../components/Blurb";
 import Footer from "../components/Footer";
-import { SPACER1, SPACER5 } from "../constants";
+import { SPACER2, SPACER5 } from "../constants";
 
 export default function About() {
   return (
@@ -21,17 +21,17 @@ export default function About() {
           <div style={{ marginBottom: SPACER5 }}>
             <p 
               className="dropcap--about" 
-              style={{ marginBottom: SPACER1 }}
+              style={{ marginBottom: SPACER2 }}
             >
-              Hi! I'm a new graduate from UCSD where I studied Cognitive Science – Design Interaction as well as a bit of Computer Science and Data Science.
+              Hi! I'm a new graduate from UCSD where I studied Cognitive Science – Design Interaction, Computer Science, and Data Science.
             </p>
 
-            <p style={{ marginBottom: SPACER1 }}>
+            <p style={{ marginBottom: SPACER2 }}>
               With a passion and skillset in front-end development, design prototyping, and collaboration, I'm looking for an exciting, mission-driven opportunity.
             </p>
 
-            <p style={{ marginBottom: SPACER1 }}>
-              Previously, I designed and developed websites at A.S. Graphic Studio, UCSD’s graphic design agency. I also lead workshops and helped build out our website at Design Co, UCSD’s pre-professional design organization. Before that, I was a UX developer at UCSD’s IT Services and also at the San Diego Supercomputer Center.
+            <p style={{ marginBottom: SPACER2 }}>
+              I'm currently helping accelerate the adoption of electric vehicles at AMPLY Power as a Frontend Developer. Previously, I've designed and developed websites at A.S. Graphic Studio, UCSD’s graphic design agency. I've also lead workshops and helped build out our website at Design Co, UCSD’s pre-professional design organization. Before that, I was a UX developer at UCSD’s IT Services in addition to working at the San Diego Supercomputer Center.
             </p>
 
             <p>

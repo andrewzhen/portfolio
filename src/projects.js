@@ -8,9 +8,9 @@ export const projects = [
     descriptions: [
       "AS Find Your Fit is a Buzzfeed-style sorting quiz aimed to fit students into one of UCSD's student government offices & services where they can learn more about applying for a position.", 
       
-      "My role in this project was developing the logic behind sorting users into various offices and realizing that vision into a successful backend while translating Figma mockups into the frontend.", 
+      "My role in this project was developing the logic behind sorting users into various offices and realizing that vision into a successful algorithm while translating Figma mockups into the frontend.", 
       
-      "I had free reign of this website so I wanted to experiment with fluid transitions between pages. For this, I opted for barba.js for its intuitive syntax and digestable documentation. I also dynamically positioned stickers as background images that would not interfere with the legibility of the website content.",
+      "I had free reign of this website so I wanted to experiment with fluid transitions between pages. For this, I opted for gsap/barba.js for its intuitive syntax and digestable documentation. I also dynamically positioned stickers as background images that would not interfere with the visibility of the website content.",
     ],
     tools: "HTML, CSS, JavaScript, Figma",
     date: "September 2020",
@@ -28,9 +28,9 @@ export const projects = [
 
       "My role was developing the frontend of this website by referencing Figma mockups and contributing to pivotal design choices such as the specifics of the grid-layout and the quarterly-brand colors.",
 
-      "A challenge I faced was dealing with the color accuracy of the images and videos that played on-hover. There was a simple relationship between color accuracy and filesize so ultimately I had to compromise one for the other to some extent.",
+      "A challenge I faced was dealing with the color accuracy of the images and videos that played on-hover. Ultimately, it was a matter of filesize so I had to compromise one for the other to some extent.",
 
-      "This website updates on a quarter-system so the designs may have changed by the time you visit it. However, I was responsible for creating a flexibile grid-system that allows for easy manipulation of elements for future designs."
+      "This website updates on a quarterly-bases so the web design may have changed by the time you visit it. However, I was responsible for implementing a flexibile grid-system that allows for easy manipulation for future iterations."
     ],
     tools: "HTML, CSS, JavaScript, Figma",
     date: "August 2020",
@@ -48,7 +48,7 @@ export const projects = [
 
       "This website reflects the complete overhaul of the Wordpress-based website and my role was to translate Figma mockups into a Wordpress theme written in PHP. I had no prior experience with either Wordpress or PHP and was the sole developer for this project.",
 
-      "As a concert and events page, the ASCE website needed to be updated regularly with new events. I opted for a JSON file that contained basic event information such as title, date, location, and image. This file, using JavaScript, could dynamically produce DOM elements."
+      "As a concert and events page, the ASCE website needed to be updated regularly with new events. As a solution, I created an array of JSON objects that contained event information such as title, date, location, and image, which I used to dynamically populate the DOM with elements."
     ],
     tools: "PHP, HTML, CSS, JavaScript, Figma",
     date: "September 2020",
@@ -66,7 +66,7 @@ export const projects = [
 
       "My role was developing the frontend of the website by referencing Figma mockups and regularly consulting with the lead designer on branding and visual design. We also worked to deliver the website with tranditionally less time than previous years.",
 
-      "This year's theme was Sunflowers and Bubbles so the original plan—which we eventually decided against—featured interactive bubbles that could be dragged around."
+      "The theme for this year was 'Sunflowers and Bubbles' so the original plan for creative interactions featured bubbles that could be manipulated by users."
     ],
     tools: "HTML, SASS, JavaScript, Figma",
     date: "February 2020",
@@ -84,7 +84,7 @@ export const projects = [
 
       "My role was developing the frontend of the website by referencing Figma mockups and delivering the finished site within a week.",
 
-      "The difficulty of executing the mockups for this website was due to building the creative hover states, cursor interactions, and the floating navigation menu."
+      "The difficulty of implementation for this website was surrounding certain creative hover states, cursor interactions, and the floating navigation menu."
     ],
     tools: "React, SASS, Git, Figma",
     date: "May 2020",
@@ -102,7 +102,7 @@ export const projects = [
 
       "My role was developing the frontend of the website by referencing Figma mockups and delivering the finished site over the span of a weekend.",
 
-      "The challenge of this website was the time constraint but I was fortunate enough that many of the React components were already in production so I could simply reuse them. However, the pop-out job description was a new component that I had to implement."
+      "Time constraint was the main challenge for implementing this website. I was also fortunate enough that some of the related React components were already in production so I simply had to integrate them. However, the slide-out job description component was one that I had to create."
     ],
     tools: "React, SASS, Git, Figma",
     date: "February 2020",
@@ -120,7 +120,7 @@ export const projects = [
 
       "My role was developing the frontend of the website by referencing Figma mockups and collaborating with the lead designer on this new initiative.",
 
-      "An interesting scalability problem we had was what to do with all these links week after week? Ultimately, we decided to store them in a folder disguised as a standard link."
+      "An interesting design-scalability problem we had was how to deal with all the links that were accumulating week after week. Ultimately, we decided to store them in a folder labeled 'Archive' disguised as a typical link."
     ],
     tools: "HTML, CSS, JavaScript, Figma",
     date: "April 2020",
