@@ -22,14 +22,20 @@
   }
 }
 
-@mixin md-lg {
-  @media (max-width: $md + 1) and (min-width: $lg - 1) {
+@mixin lg {
+  @media (max-width: $lg) {
     @content;
   }
 }
 
-@mixin lg {
-  @media (max-width: $lg) {
+@mixin xl {
+  @media (max-width: $xl) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media (max-width: $xxl) {
     @content;
   }
 }

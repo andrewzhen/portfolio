@@ -22,7 +22,7 @@ a {
   text-decoration: none;
 
   &:focus {
-    outline: 3px solid #AE81AD;
+    outline: 3px solid #AB2329;
   }
 }
 
@@ -41,7 +41,7 @@ a {
   min-height: 100vh;
   display: block;
   position: relative;
-  padding: $spacer2 $spacer4;
+  padding: $spacer4;
   box-sizing: border-box;
 
   @include md {
@@ -49,32 +49,29 @@ a {
   }
 }
 
-.nav__list {
+header {
+  margin: auto;
+
+  a {
+    font-family: "Soehne Breit Fett";
+  }
+}
+
+h1 {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem;
 
-  @at-root #{&}__item {
-    transition: $timing;
+  @include xxl {
+    display: block;
 
-    @at-root #{&}--active {
-      text-decoration: underline;
+    p {
+      display: inline;
+
+      &::after {
+        content: " ";
+      }
     }
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  @at-root #{&}--foot {
-    width: initial; 
-
-    @include s {
-      width: 100%;
-    }
-  }
-
-  @include md {
-    justify-content: space-between;
   }
 }
 
@@ -97,7 +94,7 @@ a {
     position: absolute;
     top: 50%;
     margin-top: -0.5rem;
-    width: 0.25rem;
+    width: 0.5rem;
     height: 1rem;
     background-color: $default-text-color;
     transition: $timing;
@@ -116,7 +113,7 @@ a {
   }
 
   @at-root #{&}__title {
-    margin-left: $spacer1;
+    margin-left: 1.25rem;
     transition: $timing;
 
     &--hover {
@@ -392,88 +389,42 @@ a {
   height: 5rem;
 }
 
-.left-dropOff {
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  top: 0;
-  height: 450px; //portrait height
-  width: 8rem;
-  background: linear-gradient(90deg, $default-background-color 0%, rgba(17,17,17,0) 100%);
-
-  @include lg {
-    height: 35vw;
-    width: 10vw;
-  }
-
-  @include md {
-    height: 10rem;
-    width: 100%;
-    background: linear-gradient(180deg, $default-background-color 0%, rgba(17,17,17,0) 100%);
-  }
-}
-
-.two-column {
-  display: flex;
-  justify-content: space-between;
-
-  & > * {
-    position: relative;
-    max-width: 35rem;
-
-    @include md {
-      max-width: initial;
-    }
-  }
-
-  & > *:first-child {
-    margin-right: $spacer3;
-
-    @include md {
-      margin-right: 0;
-    }
-  }
-
-  @at-root #{&}__list {
-    top: -$spacer1;
-
-    @include md {
-      top: 0;
-    }
-  }
-
-  @at-root #{&}__image {
-    @include lg {
-      width: 35vw;
-      height: 35vw;
-    }
-
-    @include md {
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  @include md {
-    flex-direction: column;
-  }
-}
-
-.foot-nav {
+footer {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: $spacer2 $spacer4;
+  padding: $spacer4;
   box-sizing: border-box;
+  
+  ul {
+    display: flex;
+    gap: 2rem;
+  }
 
   @include md {
     padding: $spacer2;
-  }
 
-  #year {
-    @include s {
+    li a span {
       display: none;
+    }
+
+    li:nth-child(1) {
+      a::after {
+        content: "Resume";
+      }
+    }
+
+    li:nth-child(2) {
+      a::after {
+        content: "LinkedIn"
+      }
+    }
+
+    li:nth-child(3) {
+      a::after {
+        content: "GitHub"
+      }
     }
   }
 }

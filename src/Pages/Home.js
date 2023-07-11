@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Helmet from "react-helmet";
-import Nav from "../components/Nav";
-import Blurb from "../components/Blurb";
+import { Link } from "react-router-dom";
 import Project from "../components/Project";
 import { projects } from "../projects";
 import Footer from "../components/Footer";
-import { SPACER1, SPACER2, SPACER3, SPACER5,  
+import { SPACER1, SPACER2, SPACER3, SPACER4, SPACER5,  
          DEFAULT_BACKGROUND_COLOR, DEFAULT_TEXT_COLOR } from "../constants";
 
 export default function Home() {
@@ -84,9 +83,23 @@ export default function Home() {
           <title>Andrew Zhen</title>
         </Helmet>
 
-        <Nav from="home" />
+        <header style={{ marginBottom: SPACER4 }}>
+          <nav className="head-nav">
+            <Link to="/">Andrew Zhen</Link>
+          </nav>
+        </header>
 
-        <Blurb text="Frontend web developer designing and developing for digital experiences. Previously built and shipped websites at A.S. Graphic Studio and helped lead UC San Diego’s largest design community at Design Co. Currently based in San Francisco Bay Area." />
+        <h1 style={{ marginBottom: SPACER4 }}>
+          <p>
+            Started as a UCSD leader @Design Co and developer @A.S. Graphic Studio.
+          </p>
+          <p>
+            Transitioned to a founding member @AMPLY Power.
+          </p>
+          <p>
+            Currently a UX Prototyper @Bloomberg based in New York City.
+          </p>
+        </h1>
 
 
         {/* Work Section*/}
